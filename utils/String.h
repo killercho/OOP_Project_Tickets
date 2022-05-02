@@ -20,6 +20,9 @@ public:
     String& operator=(const String& other);
     ~String();
 
+    String(String&& other);
+    String& operator=(String&& other);
+
     size_t getSize() const;
     const char* getStr() const;
 

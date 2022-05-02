@@ -5,5 +5,7 @@ using namespace std;
 int main()
 {
     String str("blah");
-    cout << str.getStr() << " " << str.getSize();
+    String str2(str);
+    str2 = "idk";
+    cout << str2.getStr() << " " << str2.getSize() << '\n';
 }

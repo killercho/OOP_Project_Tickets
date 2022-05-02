@@ -38,6 +38,29 @@ String::~String()
     deleteMem();
 }
 
+String::String(String&& other)
+{
+    str = other.str;
+    size = strlen(str);
+
+    other.str = nullptr;
+    other.size = 0;
+}
+
+String& String::operator=(String&& other)
+{
+    if (this != &other) {
+        deleteMem();
+
+        str = other.str;
+        size = strlen(str);
+
+        other.str = nullptr;
+        other.size = 0;
+    }
+    return *this;
+}
+
 bool String::operator==(const String& other)
 {
     return (strcmp(str, other.str) == 0);
