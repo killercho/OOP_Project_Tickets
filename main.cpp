@@ -1,12 +1,12 @@
-#include "utils/Date.h"
-#include "utils/String.h"
+#include "Date/Date.h"
+#include "Room/Room.h"
+#include "String/String.h"
+
+#include <fstream>
 
 using namespace std;
 
 int main()
 {
-    Date d1(1, 1, 2001);
-    Date d2 = d1;
-    d2.setDay(2);
-    cout << (d1 == d2) << '\n';
+    // Testing place for now...
 }

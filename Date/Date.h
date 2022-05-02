@@ -13,9 +13,9 @@ private:
     static const unsigned short DEFAULT_DAY = 1;
     static const unsigned short DEFAULT_MONTH = 1;
     static const unsigned DEFAULT_YEAR = 2022;
+    static const unsigned short daysInMonth[12];
 
     bool isYearLeap();
-    bool isNewDateValid(const unsigned short day, const unsigned short month, const unsigned year);
 
 public:
     Date(const unsigned short day, const unsigned short month, const unsigned year);
@@ -27,8 +27,8 @@ public:
     unsigned short getMonth() const;
     unsigned getYear() const;
 
-    void setDay(const unsigned short day);
-    void setMonth(const unsigned short month);
+    void setDay(unsigned short day);
+    void setMonth(unsigned short month);
     void setYear(const unsigned year);
 
     friend std::ostream& operator<<(std::ostream& os, const Date& other);
