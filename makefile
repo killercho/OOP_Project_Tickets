@@ -1,11 +1,11 @@
 # Add dependencies to main:
-main: main.o ./MyString/MyString.o
-	g++ -o main main.o ./MyString/MyString.o
+main: main.o ./utils/String.o
+	g++ -o main main.o ./utils/String.o
 
 # Add header files used in main:
-main.o: main.cpp ./MyString/MyString.h
+main.o: main.cpp ./utils/String.h
 	g++ -c main.cpp
 
-# Add header files used in ./MyString/MyString.o:
-MyString.o: ./MyString/MyString.h
+# Add header files used in ./uitls/String.o:
+String.o: ./utils/String.h
 

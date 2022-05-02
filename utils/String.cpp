@@ -1,30 +1,30 @@
-#include "MyString.h"
+#include "String.h"
 #include <cstring>
 
-void MyString::copy(const char* str)
+void String::copy(const char* str)
 {
     size = strlen(str) + 1;
     this->str = new char[size];
     strcpy(this->str, str);
 }
 
-void MyString::deleteMem()
+void String::deleteMem()
 {
     delete[] str;
     size = 0;
 }
 
-MyString::MyString(const char* str)
+String::String(const char* str)
 {
     copy(str);
 }
 
-MyString::MyString(const MyString& other)
+String::String(const String& other)
 {
     copy(other.str);
 }
 
-MyString& MyString::operator=(const MyString& other)
+String& String::operator=(const String& other)
 {
     if (this != &other) {
         deleteMem();
@@ -33,31 +33,31 @@ MyString& MyString::operator=(const MyString& other)
     return *this;
 }
 
-MyString::~MyString()
+String::~String()
 {
     deleteMem();
 }
 
-bool MyString::operator==(const MyString& other)
+bool String::operator==(const String& other)
 {
     return (strcmp(str, other.str) == 0);
 }
 
-MyString& MyString::operator+=(const MyString& other)
+String& String::operator+=(const String& other)
 {
     strcat(str, other.str);
     size += other.size;
     return *this;
 }
 
-MyString operator+(const MyString& first, const MyString& second)
+String operator+(const String& first, const String& second)
 {
-    MyString newString(first);
+    String newString(first);
     newString += second;
     return newString;
 }
 
-std::ostream& operator<<(std::ostream& os, const MyString& other)
+std::ostream& operator<<(std::ostream& os, const String& other)
 {
     os.write((const char*)&other.size, sizeof(other.size));
     os.write(other.str, other.size);
@@ -65,7 +65,7 @@ std::ostream& operator<<(std::ostream& os, const MyString& other)
     return os;
 }
 
-std::istream& operator>>(std::istream& is, MyString& other)
+std::istream& operator>>(std::istream& is, String& other)
 {
     is.read((char*)&other.size, sizeof(other.size));
     is.read(other.str, other.size);
@@ -73,12 +73,12 @@ std::istream& operator>>(std::istream& is, MyString& other)
     return is;
 }
 
-size_t MyString::getSize() const
+size_t String::getSize() const
 {
     return size;
 }
 
-const char* MyString::getStr() const
+const char* String::getStr() const
 {
     return str;
 }

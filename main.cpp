@@ -1,9 +1,9 @@
-#include "MyString/MyString.h"
+#include "utils/String.h"
 
 using namespace std;
 
 int main()
 {
-    MyString str("blah");
+    String str("blah");
     cout << str.getStr() << " " << str.getSize();
 }
