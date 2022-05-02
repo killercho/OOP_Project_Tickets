@@ -2,9 +2,7 @@
 #define STRING_H
 
 #include <cstring>
-#include <fstream>
 #include <iostream>
-#include <ostream>
 
 class String {
 private:

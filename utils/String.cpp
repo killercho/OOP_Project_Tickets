@@ -1,5 +1,4 @@
 #include "String.h"
-#include <cstring>
 
 void String::copy(const char* str)
 {
