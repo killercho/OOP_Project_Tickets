@@ -45,6 +45,7 @@ std::ostream& operator<<(std::ostream& os, const Ticket& other)
     os.write((const char*)&other.row, sizeof(other.row));
     os << other.password;
     os << other.description;
+    os.write((const char*)&other.isReserved, sizeof(other.isReserved));
 
     return os;
 }
@@ -55,6 +56,7 @@ std::istream& operator>>(std::istream& is, Ticket& other)
     is.read((char*)&other.row, sizeof(other.row));
     is >> other.password;
     is >> other.description;
+    is.read((char*)&other.isReserved, sizeof(other.isReserved));
 
     return is;
 }

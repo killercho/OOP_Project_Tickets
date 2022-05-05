@@ -12,7 +12,7 @@ private:
     static size_t id;
 
 public:
-    Room(size_t rows, size_t seatsOnRow);
+    Room(size_t rows = 5, size_t seatsOnRow = 10);
 
     size_t getRoomId() const;
     size_t getRows() const;

@@ -12,7 +12,7 @@ private:
     short isReserved; // 0 - no; 1 - yes; 2 - bought
 
 public:
-    Ticket(size_t seat, size_t row, String password, String description = "");
+    Ticket(size_t seat = 0, size_t row = 0, String password = "", String description = "");
 
     void changeReservedState(); // Changes the state from 0 -> 1 or from 1 -> 2.
 

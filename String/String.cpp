@@ -89,7 +89,7 @@ std::ostream& operator<<(std::ostream& os, const String& other)
 
 std::istream& operator>>(std::istream& is, String& other)
 {
-    other.deleteMem();
+    // other.deleteMem(); // Check!
     is.read((char*)&other.size, sizeof(other.size));
     is.read(other.str, other.size);
 
