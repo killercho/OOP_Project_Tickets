@@ -1,7 +1,6 @@
 #ifndef STRING_H
 #define STRING_H
 
-#include <cstring>
 #include <iostream>
 
 class String {
@@ -13,7 +12,7 @@ private:
     void deleteMem();
 
 public:
-    String(const char* str = nullptr);
+    String(const char* str = "");
     String(const String& other);
     String& operator=(const String& other);
     ~String();

@@ -14,8 +14,8 @@ private:
     Ticket** seats;
 
     void copy(const String& name, const Room& room, const Date& date, Ticket** seats);
+    void copy(const String& name, const Room& room, const Date& date);
     void deleteMem();
-    Ticket** createEmptySaloon(const size_t rows, const size_t seatsOnRow);
 
 public:
     Show(const String& name, const Room& room, const Date& date);

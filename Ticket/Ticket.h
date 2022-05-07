@@ -12,7 +12,7 @@ private:
     short isReserved; // 0 - no; 1 - yes; 2 - bought
 
 public:
-    Ticket(size_t seat = 0, size_t row = 0, String password = "", String description = "");
+    Ticket(size_t row = 0, size_t seat = 0, String password = "", String description = "");
 
     void changeReservedState(); // Changes the state from 0 -> 1 or from 1 -> 2.
 
@@ -21,6 +21,9 @@ public:
     size_t getRow() const;
     String getDescription() const;
     String getPassword() const;
+
+    void setPassword(const String& pass);
+    void setDescription(const String& desc);
 
     friend std::ostream& operator<<(std::ostream& os, const Ticket& other);
     friend std::istream& operator>>(std::istream& is, Ticket& other);

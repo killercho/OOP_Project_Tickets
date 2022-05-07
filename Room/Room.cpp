@@ -4,7 +4,7 @@ size_t Room::id = 0;
 
 Room::Room(size_t rows, size_t seatsOnRow)
     : rows(rows)
-    , seatsOnRow(rows)
+    , seatsOnRow(seatsOnRow)
     , roomId(id++)
 {
 }

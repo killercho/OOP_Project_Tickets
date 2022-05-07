@@ -1,6 +1,6 @@
 #include "Ticket.h"
 
-Ticket::Ticket(size_t seat, size_t row, String password, String description)
+Ticket::Ticket(size_t row, size_t seat, String password, String description)
     : seat(seat)
     , row(row)
     , password(password)
@@ -37,6 +37,16 @@ String Ticket::getPassword() const
 String Ticket::getDescription() const
 {
     return description;
+}
+
+void Ticket::setPassword(const String& pass)
+{
+    this->password = pass;
+}
+
+void Ticket::setDescription(const String& desc)
+{
+    this->description = desc;
 }
 
 std::ostream& operator<<(std::ostream& os, const Ticket& other)

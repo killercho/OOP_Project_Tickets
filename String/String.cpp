@@ -1,9 +1,10 @@
 #include "String.h"
+#include <cstring>
 
 void String::copy(const char* str)
 {
-    size = strlen(str) + 1;
-    this->str = new char[size];
+    size = strlen(str);
+    this->str = new char[size + 1];
     strcpy(this->str, str);
 }
 
@@ -89,7 +90,7 @@ std::ostream& operator<<(std::ostream& os, const String& other)
 
 std::istream& operator>>(std::istream& is, String& other)
 {
-    // other.deleteMem(); // Check!
+    other.deleteMem();
     is.read((char*)&other.size, sizeof(other.size));
     is.read(other.str, other.size);
 

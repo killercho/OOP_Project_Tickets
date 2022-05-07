@@ -18,6 +18,24 @@ void Show::copy(const String& name, const Room& room, const Date& date, Ticket**
     }
 }
 
+void Show::copy(const String& name, const Room& room, const Date& date)
+{
+    this->name = name;
+    this->room = room;
+    this->date = date;
+
+    size_t rows = room.getRows();
+    size_t seatsOnRow = room.getSeatsOnRow();
+
+    this->seats = new Ticket*[rows];
+    for (size_t i = 0; i < rows; ++i) {
+        this->seats[i] = new Ticket[seatsOnRow];
+        for (size_t j = 0; j < seatsOnRow; ++j) {
+            this->seats[i][j] = Ticket(i, j);
+        }
+    }
+}
+
 void Show::deleteMem()
 {
     for (size_t i = 0; i < room.getRows(); ++i) {
@@ -26,26 +44,9 @@ void Show::deleteMem()
     delete[] seats;
 }
 
-Ticket** Show::createEmptySaloon(const size_t rows, const size_t seatsOnRow)
-{
-    Ticket** newSeats = new Ticket*[rows];
-    for (size_t i = 0; i < rows; ++i) {
-        newSeats[i] = new Ticket[seatsOnRow];
-        for (size_t j = 0; j < seatsOnRow; ++j) {
-            newSeats[i][j] = Ticket(j, i);
-        }
-    }
-    return newSeats;
-}
-
 Show::Show(const String& name, const Room& room, const Date& date)
 {
-    Ticket** newSeats = createEmptySaloon(room.getRows(), room.getSeatsOnRow());
-    copy(name, room, date, newSeats);
-    for (size_t i = 0; i < room.getRows(); ++i) {
-        delete[] newSeats[i];
-    }
-    delete[] newSeats;
+    copy(name, room, date);
 }
 
 Show::Show(const Show& other)
