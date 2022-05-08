@@ -18,7 +18,7 @@ private:
     bool isYearLeap();
 
 public:
-    Date(const unsigned short day = 1, const unsigned short month = 1, const unsigned year = 2022);
+    Date(const unsigned short day = DEFAULT_DAY, const unsigned short month = DEFAULT_MONTH, const unsigned year = DEFAULT_YEAR);
 
     bool operator==(const Date& other);
     bool isDateValid();
