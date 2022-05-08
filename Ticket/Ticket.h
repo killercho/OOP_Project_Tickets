@@ -14,7 +14,8 @@ private:
 public:
     Ticket(size_t row = 0, size_t seat = 0, String password = "", String description = "");
 
-    void changeReservedState(); // Changes the state from 0 -> 1 or from 1 -> 2.
+    void increaseReservedState(); // Changes the state from 0 -> 1 or from 1 -> 2.
+    void clearReservedState();    // Changes the state to 0.
 
     short getReservedState() const;
     size_t getSeat() const;

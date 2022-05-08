@@ -20,7 +20,7 @@ private:
 public:
     Date(const unsigned short day = DEFAULT_DAY, const unsigned short month = DEFAULT_MONTH, const unsigned year = DEFAULT_YEAR);
 
-    bool operator==(const Date& other);
+    bool operator==(const Date& other) const;
     bool isDateValid();
 
     unsigned short getDay() const;

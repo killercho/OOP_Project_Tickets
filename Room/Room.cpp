@@ -42,7 +42,7 @@ std::istream& operator>>(std::istream& is, Room& other)
     return is;
 }
 
-bool Room::operator==(const Room& other)
+bool Room::operator==(const Room& other) const
 {
     return roomId == other.roomId;
 }

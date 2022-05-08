@@ -38,6 +38,11 @@ bool Date::isYearLeap()
     return ((year % 4 == 0) && (year % 100 != 0)) || (year % 400 == 0);
 }
 
+bool Date::operator==(const Date& other) const
+{
+    return (day == other.day && month == other.month && year == other.year);
+}
+
 unsigned short Date::getDay() const
 {
     return day;
@@ -51,11 +56,6 @@ unsigned short Date::getMonth() const
 unsigned Date::getYear() const
 {
     return year;
-}
-
-bool Date::operator==(const Date& other)
-{
-    return (day == other.day && month == other.month && year == other.year);
 }
 
 std::ostream& operator<<(std::ostream& os, const Date& other)

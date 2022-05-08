@@ -9,9 +9,14 @@ Ticket::Ticket(size_t row, size_t seat, String password, String description)
 {
 }
 
-void Ticket::changeReservedState()
+void Ticket::increaseReservedState()
 {
     isReserved++;
+}
+
+void Ticket::clearReservedState()
+{
+    isReserved = 0;
 }
 
 short Ticket::getReservedState() const

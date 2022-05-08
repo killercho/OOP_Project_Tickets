@@ -20,7 +20,7 @@ public:
     size_t getRows() const;
     size_t getSeatsOnRow() const;
 
-    bool operator==(const Room& other);
+    bool operator==(const Room& other) const;
 
     friend std::ostream& operator<<(std::ostream& os, const Room& other);
     friend std::istream& operator>>(std::istream& is, Room& other);
