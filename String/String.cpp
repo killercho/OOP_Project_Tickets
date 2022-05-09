@@ -61,7 +61,7 @@ String& String::operator=(String&& other)
     return *this;
 }
 
-bool String::operator==(const String& other)
+bool String::operator==(const String& other) const
 {
     return (strcmp(str, other.str) == 0);
 }

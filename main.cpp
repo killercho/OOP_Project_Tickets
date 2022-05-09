@@ -1,5 +1,6 @@
 #include "Show/Show.h"
 #include "Ticket/Ticket.h"
+#include "TicketOffice/TicketOffice.h"
 #include "Vector/Vector.h"
 
 #include <fstream>
@@ -10,26 +11,13 @@ int main()
 {
     String name("show1");
     Room room(5, 10);
-    Date date(1, 1, 2022);
+    Date date(24, 10, 2022);
 
-    Show show(name, room, date);
+    TicketOffice ticketOffice;
+    ticketOffice.addShow(date, name, room);
 
-    cout << show.isRoomFree(Date(1, 2, 2022));
-    cout << '\n'
-         << show.isRoomFree(Date(1, 1, 2022));
-    cout << '\n'
-         << show.reserveTicket(0, 0, "123", "description");
-    cout << '\n'
-         << show.reserveTicket(0, 0, "bum");
-    cout << '\n'
-         << show.reserveTicket(1, 2, "2");
-    cout << '\n'
-         << show.buyTicket(1, 2, "bu");
-    cout << '\n'
-         << show.removeReservation(0, 0, "123");
-    cout << '\n'
-         << show.buyTicket(0, 0);
-
-    cout << '\n'
-         << show.freeSeats();
+    ticketOffice.reservedSeatsReport(date, name);
+    ticketOffice.reserveTicket(date, name, 1, 1, "blah");
+    cout << '\n';
+    ticketOffice.reservedSeatsReport(date, name);
 }

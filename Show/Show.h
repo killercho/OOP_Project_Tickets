@@ -14,8 +14,12 @@ private:
     Date date;
     Vector<Vector<Ticket>> seats;
 
+    static const Room DEFAULT_ROOM;
+    static const Date DEFAULT_DATE;
+    static const String DEFAULT_STRING;
+
 public:
-    Show(const String& name, const Room& room, const Date& date);
+    Show(const String& name = DEFAULT_STRING, const Room& room = DEFAULT_ROOM, const Date& date = DEFAULT_DATE);
 
     String getName() const;
     Room getRoom() const;
@@ -25,11 +29,11 @@ public:
     bool isRoomFree(const Date& checkDate) const;
     bool isSeatTaken(const size_t row, const size_t seatOnRow) const;
 
-    // Change state 0 -> 1, use the DATE and NAME to search for the SHOW in the upper class.
+    // Change state 0 -> 1, using the DATE and NAME to search for the SHOW in the upper class.
     String reserveTicket(const size_t row, const size_t seatOnRow, const String& password, const String& desc = "");
 
     // Enter all the info and the reservation is canceled (state (1||2) -> 0, password = "", desc = "").
-    String removeReservation(const size_t row, const size_t seatOnRow, const String& password);
+    String removeReservation(const size_t row, const size_t seatOnRow, const String& password, const String& desc = "");
 
     // Change state from 1 -> 2 or 0 -> 2 (depending on if there is a password).
     // Return 0 if the tansaction passed.

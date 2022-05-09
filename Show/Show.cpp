@@ -1,5 +1,9 @@
 #include "Show.h"
 
+const Room Show::DEFAULT_ROOM = Room();
+const Date Show::DEFAULT_DATE = Date();
+const String Show::DEFAULT_STRING = String();
+
 Show::Show(const String& name, const Room& room, const Date& date)
 {
     this->name = name;
@@ -59,7 +63,7 @@ String Show::reserveTicket(const size_t row, const size_t seatOnRow, const Strin
     return "Successful reservation!";
 }
 
-String Show::removeReservation(const size_t row, const size_t seatOnRow, const String& password)
+String Show::removeReservation(const size_t row, const size_t seatOnRow, const String& password, const String& desc)
 {
     if (seats[row][seatOnRow].getReservedState() == 2)
         return "Cannot remove reservation! Ticket already bought!";
@@ -67,7 +71,7 @@ String Show::removeReservation(const size_t row, const size_t seatOnRow, const S
     if (seats[row][seatOnRow].getReservedState() == 0)
         return "Cannot remove reservation! Seat is not reserved!";
 
-    if (seats[row][seatOnRow].getPassword() == password)
+    if (seats[row][seatOnRow].getPassword() == password && seats[row][seatOnRow].getDescription() == desc)
         seats[row][seatOnRow].clearReservedState();
 
     return "Reservation removed successfully!";

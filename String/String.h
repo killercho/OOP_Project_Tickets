@@ -23,7 +23,7 @@ public:
     size_t getSize() const;
     const char* getStr() const;
 
-    bool operator==(const String& other);
+    bool operator==(const String& other) const;
     String& operator+=(const String& other);
 
     friend std::ostream& operator<<(std::ostream& os, const String& other);
