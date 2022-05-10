@@ -13,7 +13,7 @@ private:
 public:
     bool addShow(const Date& date, const String& name, const Room& room); // If the room is taken on that date the adding is not done.
 
-    bool reserveTicket(const Date& date, const String& name, const size_t row, const size_t seatOnRow, const String& password, const String& desc = "");
+    String reserveTicket(const Date& date, const String& name, const size_t row, const size_t seatOnRow, const String& password, const String& desc = "");
     void removeReservation(const Date& date, const String& name, const size_t row, const size_t seatOnRow, const String& password, const String& desc = "");
 
     void buyTicket(const Date& date, const String& name, const size_t row, const size_t seatOnRow);

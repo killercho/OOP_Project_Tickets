@@ -27,14 +27,13 @@ bool TicketOffice::addShow(const Date& date, const String& name, const Room& roo
     return true;
 }
 
-bool TicketOffice::reserveTicket(const Date& date, const String& name, const size_t row, const size_t seatOnRow, const String& password, const String& desc)
+String TicketOffice::reserveTicket(const Date& date, const String& name, const size_t row, const size_t seatOnRow, const String& password, const String& desc)
 {
     size_t showIndex = searchedShowIndex(date, name);
     if (showIndex == -1)
-        return false;
+        return "No show has been found! Please double check your data!\n";
 
-    shows[showIndex].reserveTicket(row, seatOnRow, password, desc);
-    return true;
+    return shows[showIndex].reserveTicket(row, seatOnRow, password, desc);
 }
 
 void TicketOffice::removeReservation(const Date& date, const String& name, const size_t row, const size_t seatOnRow, const String& password, const String& desc)

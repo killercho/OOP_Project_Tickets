@@ -70,6 +70,54 @@ void printFreeSeatsReport(TicketOffice& ticketOffice)
         cout << "The show with that name on that date was not found! Please double check the name and the date and try again.\n";
 }
 
+void reserveTicket(TicketOffice& ticketOffice)
+{
+    cout << "You have selected the 'Reserve ticket option'.\n";
+    // Date, name, row, seat, pass, desc? -> needed
+    cout << "To be able to reserve a ticket you need to enter a date (using the same format): ";
+    Date date;
+    unsigned dateBuff;
+    cin >> dateBuff;
+    date.setDay(dateBuff);
+    cin >> dateBuff;
+    date.setMonth(dateBuff);
+    cin >> dateBuff;
+    date.setYear(dateBuff);
+
+    cout << "Now enter the name of the show: ";
+    char nameBuff[1024];
+    cin.get();
+    cin.getline(nameBuff, 1024);
+    String name(nameBuff);
+
+    cout << "Enter the row and seat you want with the following format 'r s' (where 'r' is row and 's' is the seat on the row, using space as a delimiter): ";
+    size_t row, seat;
+    cin >> row >> seat;
+
+    cout << "For the reservation we need you to make a password and remember it to confirm your purchase later. \n";
+    cout << "Please enter a password: ";
+    char passBuff[1024];
+    cin.get();
+    cin.getline(passBuff, 1024);
+    String password(passBuff);
+
+    cout << "Adding a description to the ticket is optional. If you want to add a description enter '1'.\n";
+    cout << "Keep in mind that if you enter a description then you need to remember it to remove the reservation.\n";
+    cout << "If you think adding a description is pointless enter '2': ";
+    char descriptionOption;
+    cin >> descriptionOption;
+    String desc;
+    if (descriptionOption == '1') {
+        cout << "Enter a description (not more than 1024 symbols and on one line): ";
+        char descBuff[1024];
+        cin.get();
+        cin.getline(descBuff, 1024);
+        desc = descBuff;
+    }
+
+    cout << ticketOffice.reserveTicket(date, name, row, seat, password, desc) << '\n';
+}
+
 int main()
 {
     TicketOffice ticketOffice;
@@ -90,6 +138,7 @@ int main()
             break;
         }
         case '3': {
+            reserveTicket(ticketOffice);
             break;
         }
         case '4': {
