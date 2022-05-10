@@ -32,13 +32,42 @@ void addShowInput(TicketOffice& ticketOffice)
     cout << "Choose a room entering a number between 1 and " << avaluableRoomsCount << ": ";
     short roomIndex;
     cin >> roomIndex;
-    if (!ticketOffice.addShow(date, name, avaluableRooms[roomIndex]))
+    if (!ticketOffice.addShow(date, name, avaluableRooms[roomIndex - 1]))
         cout << "Adding failed! There is a show in the same room on the same date!\n";
     else
         cout << "Successfully added a show on "
              << date.getStringDay() << "/" << date.getStringMonth() << "/" << date.getStringYear()
              << ", in room number " << roomIndex
              << " with name " << name << ".\n\n";
+}
+
+void printFreeSeatsReport(TicketOffice& ticketOffice)
+{
+    cout << "You have selected 'Show free seats report'.\n";
+    cout << "Please enter the date you wish to check the free seats on in the following format "
+         << "'dd mm yyyy' \n(where 'dd' is the day, 'mm' is the month and 'yyyy' is the year, and the devisor is a space): ";
+    Date date;
+    unsigned dateBuff;
+    cin >> dateBuff;
+    date.setDay(dateBuff);
+    cin >> dateBuff;
+    date.setMonth(dateBuff);
+    cin >> dateBuff;
+    date.setYear(dateBuff);
+
+    cout << "Now enter the name of the show: ";
+    char nameBuff[1024];
+    cin.get();
+    cin.getline(nameBuff, 1024);
+    String name(nameBuff);
+
+    size_t freeSeats = ticketOffice.freeSeatsReport(date, name);
+    if (freeSeats != -1)
+        cout << "The free seats for the show " << name << " on "
+             << date.getStringDay() << "/" << date.getStringMonth() << "/" << date.getStringYear()
+             << " are " << freeSeats << ".\n";
+    else
+        cout << "The show with that name on that date was not found! Please double check the name and the date and try again.\n";
 }
 
 int main()
@@ -57,6 +86,7 @@ int main()
             break;
         }
         case '2': {
+            printFreeSeatsReport(ticketOffice);
             break;
         }
         case '3': {

@@ -19,7 +19,7 @@ public:
     void buyTicket(const Date& date, const String& name, const size_t row, const size_t seatOnRow);
     void buyTicket(const Date& date, const String& name, const size_t row, const size_t seatOnRow, const String& password);
 
-    void freeSeatsReport(const Date& date, const String& name);
+    size_t freeSeatsReport(const Date& date, const String& name);
     void reservedSeatsReport(const Date& date, const String& name, const bool allDates = false, const bool allNames = false); // If ALL is entered the bool flag is turned to true
                                                                                                                               // and the corresponding value is set to default.
     void boughtSeatsReport(Date& fromDate, const Date& toDate, const Room& room, const bool allRooms = false);                // Same as the reservedSeatsReference function.

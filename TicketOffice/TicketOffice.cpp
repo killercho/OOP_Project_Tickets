@@ -61,12 +61,12 @@ void TicketOffice::buyTicket(const Date& date, const String& name, const size_t 
     shows[showIndex].buyTicket(row, seatOnRow, password);
 }
 
-void TicketOffice::freeSeatsReport(const Date& date, const String& name)
+size_t TicketOffice::freeSeatsReport(const Date& date, const String& name)
 {
     size_t showIndex = searchedShowIndex(date, name);
     if (showIndex == -1)
-        return;
-    shows[showIndex].freeSeats();
+        return -1;
+    return shows[showIndex].freeSeats();
 }
 
 void TicketOffice::reservedSeatsReport(const Date& date, const String& name, const bool allDates, const bool allNames)
