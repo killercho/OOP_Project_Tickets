@@ -1,5 +1,4 @@
 #include "Date.h"
-#include <cmath>
 
 unsigned short Date::daysInMonth[12] = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
 
@@ -94,44 +93,29 @@ bool Date::operator>(const Date& other) const
 
 String Date::getStringDay() const
 {
-    unsigned short tmp = day;
-    char helper[2];
-    if (tmp < 10)
-        helper[0] = ((tmp % 10) + '0');
-    else {
-        for (int i = 0; i < 2; ++i) {
-            helper[i] = (tmp / (int)pow(10, 1 - i) % 10 + '0');
-        }
-    }
+    char result[2];
+    result[0] = (day / 10 + '0');
+    result[1] = (day % 10 + '0');
 
-    String number = helper;
-    return number;
+    return result;
 }
 
 String Date::getStringMonth() const
 {
-    unsigned short tmp = month;
-    char helper[2];
-    if (tmp < 10)
-        helper[0] = ((tmp % 10) + '0');
-    else {
-        for (int i = 0; i < 2; ++i) {
-            helper[i] = (tmp / (int)pow(10, 1 - i) % 10 + '0');
-        }
-    }
+    char result[2];
+    result[0] = (month / 10 + '0');
+    result[1] = (month % 10 + '0');
 
-    String number = helper;
-    return number;
+    return result;
 }
 
 String Date::getStringYear() const
 {
-    unsigned short tmp = year;
-    char helper[4];
-    for (int i = 0; i < 4; i++) {
-        helper[i] = (tmp / (int)pow(10, 3 - i) % 10 + '0');
-    }
+    char result[4];
+    result[0] = (year / 1000 + '0');
+    result[1] = ((year / 100) % 10 + '0');
+    result[2] = ((year / 10) % 10 + '0');
+    result[3] = (year % 10 + '0');
 
-    String number = helper;
-    return number;
+    return result;
 }

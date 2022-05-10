@@ -22,7 +22,9 @@ public:
     void freeSeatsReport(const Date& date, const String& name);
     void reservedSeatsReport(const Date& date, const String& name, const bool allDates = false, const bool allNames = false); // If ALL is entered the bool flag is turned to true
                                                                                                                               // and the corresponding value is set to default.
-    void boughtSeatsReport(const Date& fromDate, const Date& toDate, const Room& room, const bool allRooms = false);          // Same as the reservedSeatsReference function.
+    void boughtSeatsReport(Date& fromDate, const Date& toDate, const Room& room, const bool allRooms = false);                // Same as the reservedSeatsReference function.
+
+    void printTicketOfficeManual() const;
 };
 
 #endif

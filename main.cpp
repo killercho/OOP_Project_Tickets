@@ -1,23 +1,83 @@
-#include "Show/Show.h"
-#include "Ticket/Ticket.h"
 #include "TicketOffice/TicketOffice.h"
-#include "Vector/Vector.h"
 
 #include <fstream>
 
 using namespace std;
 
+const Room avaluableRooms[] = { Room(7, 4), Room(8, 15), Room(9, 16), Room(6, 10) };
+
+void addShowInput(TicketOffice& ticketOffice)
+{
+    cout << "\nYou have selected 'Add a new show'. To add a new show we need the date, name and room from the programme!\n";
+    cout << "Please enter a date in the following format 'dd mm yyyy' (where 'dd' is the day, 'mm' is the month and 'yyyy' is the year, and the devisor is a space): ";
+    Date date;
+    unsigned dateBuff;
+    cin >> dateBuff;
+    date.setDay(dateBuff);
+    cin >> dateBuff;
+    date.setMonth(dateBuff);
+    cin >> dateBuff;
+    date.setYear(dateBuff);
+
+    cout << "Great! Now we need the name of the show: ";
+    char nameBuff[1024];
+    cin.get();
+    cin.getline(nameBuff, 1024);
+    String name(nameBuff);
+
+    unsigned avaluableRoomsCount = (sizeof(avaluableRooms) / sizeof(Room));
+    cout << "The last thing needed is the room in which the show is going to be showed. \n";
+    cout << "There are currently " << avaluableRoomsCount << " avaluable rooms. \n";
+    cout << "Keep in mind that some rooms might not be avaluable on the date you select!\n";
+    cout << "Choose a room entering a number between 1 and " << avaluableRoomsCount << ": ";
+    short roomIndex;
+    cin >> roomIndex;
+    if (!ticketOffice.addShow(date, name, avaluableRooms[roomIndex]))
+        cout << "Adding failed! There is a show in the same room on the same date!\n";
+    else
+        cout << "Successfully added a show on "
+             << date.getStringDay() << "/" << date.getStringMonth() << "/" << date.getStringYear()
+             << ", in room number " << roomIndex
+             << " with name " << name << ".\n\n";
+}
+
 int main()
 {
-    String name("show1");
-    Room room(5, 10);
-    Date date(24, 10, 2022);
-
     TicketOffice ticketOffice;
-    ticketOffice.addShow(date, name, room);
 
-    ticketOffice.reservedSeatsReport(date, name);
-    ticketOffice.reserveTicket(date, name, 1, 1, "blah");
-    cout << '\n';
-    ticketOffice.reservedSeatsReport(date, name);
+    bool menuActive = true;
+    while (menuActive) {
+        ticketOffice.printTicketOfficeManual();
+        char command;
+        cin >> command;
+
+        switch (command) {
+        case '1': {
+            addShowInput(ticketOffice);
+            break;
+        }
+        case '2': {
+            break;
+        }
+        case '3': {
+            break;
+        }
+        case '4': {
+            break;
+        }
+        case '5': {
+            break;
+        }
+        case '6': {
+            break;
+        }
+        case '7': {
+            break;
+        }
+        case '8': {
+            menuActive = false;
+            break;
+        }
+        }
+    }
 }

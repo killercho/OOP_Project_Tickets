@@ -100,7 +100,7 @@ void TicketOffice::reservedSeatsReport(const Date& date, const String& name, con
         dateString += "-";
         dateString += date.getStringMonth();
         dateString += "-";
-        dateString += date.getStringYear(); // TODO: Fix the segmentation fault here!
+        // dateString += date.getStringYear(); // TODO: Fix the segmentation fault here!
     } else
         dateString = "ALL";
 
@@ -118,20 +118,38 @@ void TicketOffice::reservedSeatsReport(const Date& date, const String& name, con
     file.close();
 }
 
-void TicketOffice::boughtSeatsReport(const Date& fromDate, const Date& toDate, const Room& room, const bool allRooms)
+void TicketOffice::boughtSeatsReport(Date& fromDate, const Date& toDate, const Room& room, const bool allRooms)
 {
     if (fromDate > toDate)
         return;
     if (!allRooms) {
-        while (!(fromDate == toDate)) {
+        do {
             size_t index = searchedShowIndex(fromDate, room);
             std::cout << "The show " << shows[index].getName() << " has sold " << shows[index].boughtList() << " tickets.";
-        }
+            fromDate.increaseDay();
+        } while (!(fromDate == toDate));
     } else {
-        while (!(fromDate == toDate)) {
+        do {
             for (size_t i = 0; i < shows.getSize(); ++i) {
                 std::cout << "The show " << shows[i].getName() << " has sold " << shows[i].boughtList() << " tickets.";
             }
-        }
+            fromDate.increaseDay();
+        } while (!(fromDate == toDate));
     }
+}
+
+void TicketOffice::printTicketOfficeManual() const
+{
+    using namespace std;
+    cout << "\nMain menu!\n";
+    cout << "To enter a command please use the following guide: \n";
+    cout << "To add a new show to the Ticket Office please enter '1'!\n";
+    cout << "To print a report about the free seats in a room for a given show please enter '2'!\n";
+    cout << "To reserve a ticket for a given show please enter '3'!\n";
+    cout << "To remove a reservation please enter '4'!\n";
+    cout << "To buy a ticket for a given show please enter '5'!\n";
+    cout << "To save a local copy of the report considering reservations made please enter '6'!\n";
+    cout << "To print a report about the bought tickets please enter '7'!\n";
+    cout << "To exit the menu and close the program please enter '8'!\n";
+    cout << "Enter desired command now: ";
 }
