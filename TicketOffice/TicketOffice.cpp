@@ -99,7 +99,7 @@ void TicketOffice::reservedSeatsReport(const Date& date, const String& name, con
         dateString += "-";
         dateString += date.getStringMonth();
         dateString += "-";
-        // dateString += date.getStringYear(); // TODO: Fix the segmentation fault here!
+        dateString += date.getStringYear();
     } else
         dateString = "ALL";
 

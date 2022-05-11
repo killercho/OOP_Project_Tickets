@@ -73,7 +73,6 @@ void printFreeSeatsReport(TicketOffice& ticketOffice)
 void reserveTicket(TicketOffice& ticketOffice)
 {
     cout << "You have selected the 'Reserve ticket option'.\n";
-    // Date, name, row, seat, pass, desc? -> needed
     cout << "To be able to reserve a ticket you need to enter a date (using the same format): ";
     Date date;
     unsigned dateBuff;
@@ -122,41 +121,49 @@ int main()
 {
     TicketOffice ticketOffice;
 
-    bool menuActive = true;
-    while (menuActive) {
-        ticketOffice.printTicketOfficeManual();
-        char command;
-        cin >> command;
+    Date date(1, 1, 2002);
+    String name("show1");
+    Room room(6, 10);
+    ticketOffice.addShow(date, name, room);
+    ticketOffice.reservedSeatsReport(date, name);
 
-        switch (command) {
-        case '1': {
-            addShowInput(ticketOffice);
-            break;
+    /*
+        bool menuActive = true;
+        while (menuActive) {
+            ticketOffice.printTicketOfficeManual();
+            char command;
+            cin >> command;
+
+            switch (command) {
+            case '1': {
+                addShowInput(ticketOffice);
+                break;
+            }
+            case '2': {
+                printFreeSeatsReport(ticketOffice);
+                break;
+            }
+            case '3': {
+                reserveTicket(ticketOffice);
+                break;
+            }
+            case '4': {
+                break;
+            }
+            case '5': {
+                break;
+            }
+            case '6': {
+                break;
+            }
+            case '7': {
+                break;
+            }
+            case '8': {
+                menuActive = false;
+                break;
+            }
+            }
         }
-        case '2': {
-            printFreeSeatsReport(ticketOffice);
-            break;
-        }
-        case '3': {
-            reserveTicket(ticketOffice);
-            break;
-        }
-        case '4': {
-            break;
-        }
-        case '5': {
-            break;
-        }
-        case '6': {
-            break;
-        }
-        case '7': {
-            break;
-        }
-        case '8': {
-            menuActive = false;
-            break;
-        }
-        }
-    }
+        */
 }
