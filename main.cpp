@@ -117,53 +117,93 @@ void reserveTicket(TicketOffice& ticketOffice)
     cout << ticketOffice.reserveTicket(date, name, row, seat, password, desc) << '\n';
 }
 
+void removeReservation(TicketOffice& ticketOffice)
+{
+    cout << "You have selected the 'Remove reservation option'.";
+    cout << "To remove the reservation enter the same data you entered when making the reservation.";
+    cout << "Start with the date, using the same format: ";
+    Date date;
+    unsigned dateBuff;
+    cin >> dateBuff;
+    date.setDay(dateBuff);
+    cin >> dateBuff;
+    date.setMonth(dateBuff);
+    cin >> dateBuff;
+    date.setYear(dateBuff);
+
+    cout << "Now enter the name of the show: ";
+    char nameBuff[1024];
+    cin.get();
+    cin.getline(nameBuff, 1024);
+    String name(nameBuff);
+
+    cout << "Enter the row and seat you want with the following format 'r s' (where 'r' is row and 's' is the seat on the row, using space as a delimiter): ";
+    size_t row, seat;
+    cin >> row >> seat;
+
+    cout << "Please enter a password: ";
+    char passBuff[1024];
+    cin.get();
+    cin.getline(passBuff, 1024);
+    String password(passBuff);
+
+    cout << "If you added a description enter '1' and you will be able to write it again here.\n";
+    cout << "If you didn't add a description enter '2'.\n";
+    cout << "Enter option now: ";
+    char descriptionOption;
+    cin >> descriptionOption;
+    String desc = "";
+    if (descriptionOption == '1') {
+        cout << "Enter a description (not more than 1024 symbols and on one line): ";
+        char descBuff[1024];
+        cin.get();
+        cin.getline(descBuff, 1024);
+        desc = descBuff;
+    }
+
+    cout << ticketOffice.removeReservation(date, name, row, seat, password, desc);
+}
+
 int main()
 {
     TicketOffice ticketOffice;
 
-    Date date(1, 1, 2002);
-    String name("show1");
-    Room room(6, 10);
-    ticketOffice.addShow(date, name, room);
-    ticketOffice.reservedSeatsReport(date, name);
+    bool menuActive = true;
+    while (menuActive) {
+        ticketOffice.printTicketOfficeManual();
+        char command;
+        cin >> command;
 
-    /*
-        bool menuActive = true;
-        while (menuActive) {
-            ticketOffice.printTicketOfficeManual();
-            char command;
-            cin >> command;
-
-            switch (command) {
-            case '1': {
-                addShowInput(ticketOffice);
-                break;
-            }
-            case '2': {
-                printFreeSeatsReport(ticketOffice);
-                break;
-            }
-            case '3': {
-                reserveTicket(ticketOffice);
-                break;
-            }
-            case '4': {
-                break;
-            }
-            case '5': {
-                break;
-            }
-            case '6': {
-                break;
-            }
-            case '7': {
-                break;
-            }
-            case '8': {
-                menuActive = false;
-                break;
-            }
-            }
+        switch (command) {
+        case '1': {
+            addShowInput(ticketOffice);
+            break;
         }
-        */
+        case '2': {
+            printFreeSeatsReport(ticketOffice);
+            break;
+        }
+        case '3': {
+            reserveTicket(ticketOffice);
+            break;
+        }
+        case '4': {
+            removeReservation(ticketOffice);
+            break;
+        }
+        case '5': {
+            break;
+        }
+        case '6': {
+            break;
+        }
+        case '7': {
+            break;
+        }
+        case '8': {
+            menuActive = false;
+            break;
+        }
+        }
+    }
 }

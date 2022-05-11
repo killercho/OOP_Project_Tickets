@@ -71,9 +71,10 @@ String Show::removeReservation(const size_t row, const size_t seatOnRow, const S
     if (seats[row][seatOnRow].getReservedState() == 0)
         return "Cannot remove reservation! Seat is not reserved!";
 
-    if (seats[row][seatOnRow].getPassword() == password && seats[row][seatOnRow].getDescription() == desc)
-        seats[row][seatOnRow].clearReservedState();
+    if (!(seats[row][seatOnRow].getPassword() == password && seats[row][seatOnRow].getDescription() == desc))
+        return "Password or description doesn't match what the database shows!";
 
+    seats[row][seatOnRow].clearReservedState();
     return "Reservation removed successfully!";
 }
 

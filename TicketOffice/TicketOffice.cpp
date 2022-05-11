@@ -36,12 +36,12 @@ String TicketOffice::reserveTicket(const Date& date, const String& name, const s
     return shows[showIndex].reserveTicket(row, seatOnRow, password, desc);
 }
 
-void TicketOffice::removeReservation(const Date& date, const String& name, const size_t row, const size_t seatOnRow, const String& password, const String& desc)
+String TicketOffice::removeReservation(const Date& date, const String& name, const size_t row, const size_t seatOnRow, const String& password, const String& desc)
 {
     size_t showIndex = searchedShowIndex(date, name);
     if (showIndex == -1)
-        return;
-    shows[showIndex].removeReservation(row, seatOnRow, password, desc);
+        return "Show was not found in the database! Please double check your input information and try again.\n";
+    return shows[showIndex].removeReservation(row, seatOnRow, password, desc);
 }
 
 void TicketOffice::buyTicket(const Date& date, const String& name, const size_t row, const size_t seatOnRow)
