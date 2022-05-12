@@ -16,8 +16,8 @@ public:
     String reserveTicket(const Date& date, const String& name, const size_t row, const size_t seatOnRow, const String& password, const String& desc = "");
     String removeReservation(const Date& date, const String& name, const size_t row, const size_t seatOnRow, const String& password, const String& desc = "");
 
-    void buyTicket(const Date& date, const String& name, const size_t row, const size_t seatOnRow);
-    void buyTicket(const Date& date, const String& name, const size_t row, const size_t seatOnRow, const String& password);
+    short buyTicket(const Date& date, const String& name, const size_t row, const size_t seatOnRow);
+    short buyTicket(const Date& date, const String& name, const size_t row, const size_t seatOnRow, const String& password);
 
     size_t freeSeatsReport(const Date& date, const String& name);
     void reservedSeatsReport(const Date& date, const String& name, const bool allDates = false, const bool allNames = false); // If ALL is entered the bool flag is turned to true

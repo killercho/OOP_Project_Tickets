@@ -44,20 +44,20 @@ String TicketOffice::removeReservation(const Date& date, const String& name, con
     return shows[showIndex].removeReservation(row, seatOnRow, password, desc);
 }
 
-void TicketOffice::buyTicket(const Date& date, const String& name, const size_t row, const size_t seatOnRow)
+short TicketOffice::buyTicket(const Date& date, const String& name, const size_t row, const size_t seatOnRow)
 {
     size_t showIndex = searchedShowIndex(date, name);
     if (showIndex == -1)
-        return;
-    shows[showIndex].buyTicket(row, seatOnRow);
+        return -1;
+    return shows[showIndex].buyTicket(row, seatOnRow);
 }
 
-void TicketOffice::buyTicket(const Date& date, const String& name, const size_t row, const size_t seatOnRow, const String& password)
+short TicketOffice::buyTicket(const Date& date, const String& name, const size_t row, const size_t seatOnRow, const String& password)
 {
     size_t showIndex = searchedShowIndex(date, name);
     if (showIndex == -1)
-        return;
-    shows[showIndex].buyTicket(row, seatOnRow, password);
+        return -1;
+    return shows[showIndex].buyTicket(row, seatOnRow, password);
 }
 
 size_t TicketOffice::freeSeatsReport(const Date& date, const String& name)

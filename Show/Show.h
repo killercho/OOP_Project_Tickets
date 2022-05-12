@@ -39,7 +39,8 @@ public:
     // Return 0 if the tansaction passed.
     // Return 1 if the seat is taken.
     // Return 2 if the password is wrong.
-    bool buyTicket(const size_t row, const size_t seatOnRow);
+    // Return 3 if the user tried to buy a reserved ticket without entering a password.
+    short buyTicket(const size_t row, const size_t seatOnRow);
     short buyTicket(const size_t row, const size_t seatOnRow, const String& password);
 
     size_t freeSeats() const;

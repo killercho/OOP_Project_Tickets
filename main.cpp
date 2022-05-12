@@ -6,10 +6,8 @@ using namespace std;
 
 const Room avaluableRooms[] = { Room(7, 4), Room(8, 15), Room(9, 16), Room(6, 10) };
 
-void addShowInput(TicketOffice& ticketOffice)
+Date enterDate()
 {
-    cout << "\nYou have selected 'Add a new show'. To add a new show we need the date, name and room from the programme!\n";
-    cout << "Please enter a date in the following format 'dd mm yyyy' (where 'dd' is the day, 'mm' is the month and 'yyyy' is the year, and the devisor is a space): ";
     Date date;
     unsigned dateBuff;
     cin >> dateBuff;
@@ -18,12 +16,26 @@ void addShowInput(TicketOffice& ticketOffice)
     date.setMonth(dateBuff);
     cin >> dateBuff;
     date.setYear(dateBuff);
+    return date;
+}
 
-    cout << "Great! Now we need the name of the show: ";
+String enterString()
+{
     char nameBuff[1024];
     cin.get();
     cin.getline(nameBuff, 1024);
     String name(nameBuff);
+    return name;
+}
+
+void addShowInput(TicketOffice& ticketOffice)
+{
+    cout << "\nYou have selected 'Add a new show'. To add a new show we need the date, name and room from the programme!\n";
+    cout << "Please enter a date in the following format 'dd mm yyyy' (where 'dd' is the day, 'mm' is the month and 'yyyy' is the year, and the devisor is a space): ";
+    Date date = enterDate();
+
+    cout << "Great! Now we need the name of the show: ";
+    String name = enterString();
 
     unsigned avaluableRoomsCount = (sizeof(avaluableRooms) / sizeof(Room));
     cout << "The last thing needed is the room in which the show is going to be showed. \n";
@@ -46,20 +58,10 @@ void printFreeSeatsReport(TicketOffice& ticketOffice)
     cout << "You have selected 'Show free seats report'.\n";
     cout << "Please enter the date you wish to check the free seats on in the following format "
          << "'dd mm yyyy' \n(where 'dd' is the day, 'mm' is the month and 'yyyy' is the year, and the devisor is a space): ";
-    Date date;
-    unsigned dateBuff;
-    cin >> dateBuff;
-    date.setDay(dateBuff);
-    cin >> dateBuff;
-    date.setMonth(dateBuff);
-    cin >> dateBuff;
-    date.setYear(dateBuff);
+    Date date = enterDate();
 
     cout << "Now enter the name of the show: ";
-    char nameBuff[1024];
-    cin.get();
-    cin.getline(nameBuff, 1024);
-    String name(nameBuff);
+    String name = enterString();
 
     size_t freeSeats = ticketOffice.freeSeatsReport(date, name);
     if (freeSeats != -1)
@@ -74,20 +76,10 @@ void reserveTicket(TicketOffice& ticketOffice)
 {
     cout << "You have selected the 'Reserve ticket option'.\n";
     cout << "To be able to reserve a ticket you need to enter a date (using the same format): ";
-    Date date;
-    unsigned dateBuff;
-    cin >> dateBuff;
-    date.setDay(dateBuff);
-    cin >> dateBuff;
-    date.setMonth(dateBuff);
-    cin >> dateBuff;
-    date.setYear(dateBuff);
+    Date date = enterDate();
 
     cout << "Now enter the name of the show: ";
-    char nameBuff[1024];
-    cin.get();
-    cin.getline(nameBuff, 1024);
-    String name(nameBuff);
+    String name = enterString();
 
     cout << "Enter the row and seat you want with the following format 'r s' (where 'r' is row and 's' is the seat on the row, using space as a delimiter): ";
     size_t row, seat;
@@ -95,10 +87,7 @@ void reserveTicket(TicketOffice& ticketOffice)
 
     cout << "For the reservation we need you to make a password and remember it to confirm your purchase later. \n";
     cout << "Please enter a password: ";
-    char passBuff[1024];
-    cin.get();
-    cin.getline(passBuff, 1024);
-    String password(passBuff);
+    String password = enterString();
 
     cout << "Adding a description to the ticket is optional. If you want to add a description enter '1'.\n";
     cout << "Keep in mind that if you enter a description then you need to remember it to remove the reservation.\n";
@@ -108,10 +97,7 @@ void reserveTicket(TicketOffice& ticketOffice)
     String desc;
     if (descriptionOption == '1') {
         cout << "Enter a description (not more than 1024 symbols and on one line): ";
-        char descBuff[1024];
-        cin.get();
-        cin.getline(descBuff, 1024);
-        desc = descBuff;
+        desc = enterString();
     }
 
     cout << ticketOffice.reserveTicket(date, name, row, seat, password, desc) << '\n';
@@ -119,33 +105,20 @@ void reserveTicket(TicketOffice& ticketOffice)
 
 void removeReservation(TicketOffice& ticketOffice)
 {
-    cout << "You have selected the 'Remove reservation option'.";
-    cout << "To remove the reservation enter the same data you entered when making the reservation.";
+    cout << "You have selected the 'Remove reservation option'.\n";
+    cout << "To remove the reservation enter the same data you entered when making the reservation.\n";
     cout << "Start with the date, using the same format: ";
-    Date date;
-    unsigned dateBuff;
-    cin >> dateBuff;
-    date.setDay(dateBuff);
-    cin >> dateBuff;
-    date.setMonth(dateBuff);
-    cin >> dateBuff;
-    date.setYear(dateBuff);
+    Date date = enterDate();
 
     cout << "Now enter the name of the show: ";
-    char nameBuff[1024];
-    cin.get();
-    cin.getline(nameBuff, 1024);
-    String name(nameBuff);
+    String name = enterString();
 
     cout << "Enter the row and seat you want with the following format 'r s' (where 'r' is row and 's' is the seat on the row, using space as a delimiter): ";
     size_t row, seat;
     cin >> row >> seat;
 
     cout << "Please enter a password: ";
-    char passBuff[1024];
-    cin.get();
-    cin.getline(passBuff, 1024);
-    String password(passBuff);
+    String password = enterString();
 
     cout << "If you added a description enter '1' and you will be able to write it again here.\n";
     cout << "If you didn't add a description enter '2'.\n";
@@ -155,13 +128,58 @@ void removeReservation(TicketOffice& ticketOffice)
     String desc = "";
     if (descriptionOption == '1') {
         cout << "Enter a description (not more than 1024 symbols and on one line): ";
-        char descBuff[1024];
-        cin.get();
-        cin.getline(descBuff, 1024);
-        desc = descBuff;
+        desc = enterString();
     }
 
     cout << ticketOffice.removeReservation(date, name, row, seat, password, desc);
+}
+
+void buyTicket(TicketOffice& ticketOffice)
+{
+    cout << "You have selected the 'Buy ticket' option.\n";
+    cout << "To buy a ticket you need to enter the date of the show, using the same format: ";
+    Date date = enterDate();
+
+    cout << "Now enter the name of the show: ";
+    String name = enterString();
+
+    cout << "Enter the row and seat you want with the following format 'r s' (where 'r' is row and 's' is the seat on the row, using space as a delimiter): ";
+    size_t row, seat;
+    cin >> row >> seat;
+
+    cout << "If you have reserved a ticked before and want to buy it enter '1', if you want to buy an unreserved spot enter '2': ";
+    char buyingOption;
+    cin >> buyingOption;
+    short response;
+    if (buyingOption == '1') {
+        cout << "Now you have to enter the password you used in the reservation stage: ";
+        String password = enterString();
+        response = ticketOffice.buyTicket(date, name, row, seat, password);
+    } else
+        response = ticketOffice.buyTicket(date, name, row, seat);
+
+    switch (response) {
+    case -1: {
+        cout << "The transaction did not pass.\n";
+        break;
+    }
+    case 0: {
+        cout << "The transaction passed!\n";
+        break;
+    }
+    case 1: {
+        cout << "The seat you are trying to buy has already been bought!\n";
+        break;
+    }
+    case 2: {
+        cout << "The entered password is wrong!\n";
+        break;
+    }
+    case 3: {
+        cout << "The ticket you are trying to buy is reserved. If you want to buy it you have to enter a password!\n";
+        break;
+    }
+    }
 }
 
 int main()
@@ -192,6 +210,7 @@ int main()
             break;
         }
         case '5': {
+            buyTicket(ticketOffice);
             break;
         }
         case '6': {

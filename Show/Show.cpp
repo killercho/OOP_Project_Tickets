@@ -78,14 +78,16 @@ String Show::removeReservation(const size_t row, const size_t seatOnRow, const S
     return "Reservation removed successfully!";
 }
 
-bool Show::buyTicket(const size_t row, const size_t seatOnRow)
+short Show::buyTicket(const size_t row, const size_t seatOnRow)
 {
     if (seats[row][seatOnRow].getReservedState() == 1)
-        return false;
+        return 3;
+    if (seats[row][seatOnRow].getReservedState() == 2)
+        return 1;
 
     seats[row][seatOnRow].increaseReservedState();
     seats[row][seatOnRow].increaseReservedState();
-    return true;
+    return 0;
 }
 
 short Show::buyTicket(const size_t row, const size_t seatOnRow, const String& password)
