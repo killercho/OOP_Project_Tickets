@@ -115,24 +115,35 @@ void TicketOffice::reservedSeatsReport(const Date& date, const String& name, con
     file.close();
 }
 
-void TicketOffice::boughtSeatsReport(Date& fromDate, const Date& toDate, const Room& room, const bool allRooms)
+bool TicketOffice::boughtSeatsReport(Date& fromDate, const Date& toDate, const Room& room, const bool allRooms, const Room* roomsArr, const size_t roomCount)
 {
     if (fromDate > toDate)
-        return;
+        return false;
     if (!allRooms) {
         do {
             size_t index = searchedShowIndex(fromDate, room);
-            std::cout << "The show " << shows[index].getName() << " has sold " << shows[index].boughtList() << " tickets.";
+            if (index != -1)
+                std::cout << "The show " << shows[index].getName()
+                          << " on " << fromDate.getStringDay() << "/" << fromDate.getStringMonth() << "/" << fromDate.getStringYear()
+                          << " has sold " << shows[index].boughtList() << " tickets.\n";
             fromDate.increaseDay();
         } while (!(fromDate == toDate));
     } else {
         do {
-            for (size_t i = 0; i < shows.getSize(); ++i) {
-                std::cout << "The show " << shows[i].getName() << " has sold " << shows[i].boughtList() << " tickets.";
+            for (size_t i = 0; i < roomCount; ++i) {
+                size_t index = searchedShowIndex(fromDate, roomsArr[i]);
+                if (index != -1) {
+                    size_t boughtCount = shows[index].boughtList();
+                    if (boughtCount != 0)
+                        std::cout << "The show " << shows[index].getName()
+                                  << " on " << fromDate.getStringDay() << "/" << fromDate.getStringMonth() << "/" << fromDate.getStringYear()
+                                  << " has sold " << shows[index].boughtList() << " tickets.\n";
+                }
             }
             fromDate.increaseDay();
         } while (!(fromDate == toDate));
     }
+    return true;
 }
 
 void TicketOffice::printTicketOfficeManual() const

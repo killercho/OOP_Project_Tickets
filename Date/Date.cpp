@@ -82,8 +82,10 @@ void Date::increaseDay()
         if (month + 1 > 12) {
             setMonth(1);
             setYear(year + 1);
-        }
-    }
+        } else
+            setMonth(month + 1);
+    } else
+        setDay(day + 1);
 }
 
 bool Date::operator>(const Date& other) const

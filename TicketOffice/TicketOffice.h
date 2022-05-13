@@ -20,9 +20,9 @@ public:
     short buyTicket(const Date& date, const String& name, const size_t row, const size_t seatOnRow, const String& password);
 
     size_t freeSeatsReport(const Date& date, const String& name);
-    void reservedSeatsReport(const Date& date, const String& name, const bool allDates = false, const bool allNames = false); // If ALL is entered the bool flag is turned to true
-                                                                                                                              // and the corresponding value is set to default.
-    void boughtSeatsReport(Date& fromDate, const Date& toDate, const Room& room, const bool allRooms = false);                // Same as the reservedSeatsReference function.
+    void reservedSeatsReport(const Date& date, const String& name, const bool allDates = false, const bool allNames = false);                                                       // If ALL is entered the bool flag is turned to true
+                                                                                                                                                                                    // and the corresponding value is set to default.
+    bool boughtSeatsReport(Date& fromDate, const Date& toDate, const Room& room = Room(), const bool allRooms = false, const Room* roomsArr = nullptr, const size_t roomCount = 0); // Same as the reservedSeatsReference function.
 
     void printTicketOfficeManual() const;
 };

@@ -5,6 +5,7 @@
 using namespace std;
 
 const Room avaluableRooms[] = { Room(7, 4), Room(8, 15), Room(9, 16), Room(6, 10) };
+const unsigned avaluableRoomsCount = (sizeof(avaluableRooms) / sizeof(Room));
 
 Date enterDate()
 {
@@ -37,7 +38,6 @@ void addShowInput(TicketOffice& ticketOffice)
     cout << "Great! Now we need the name of the show: ";
     String name = enterString();
 
-    unsigned avaluableRoomsCount = (sizeof(avaluableRooms) / sizeof(Room));
     cout << "The last thing needed is the room in which the show is going to be showed. \n";
     cout << "There are currently " << avaluableRoomsCount << " avaluable rooms. \n";
     cout << "Keep in mind that some rooms might not be avaluable on the date you select!\n";
@@ -189,15 +189,17 @@ void saveReservationsReport(TicketOffice& ticketOffice)
     String checkDateDesire = enterString();
     if (checkDateDesire == "ALL") {
         cout << "Now enter the name of the show: ";
-        char nameBuff[1024];
-        cin.getline(nameBuff, 1024);
-        String name(nameBuff);
+        String name = enterString();
+        // char nameBuff[1024];
+        // cin.getline(nameBuff, 1024);
+        // String name(nameBuff);
         ticketOffice.reservedSeatsReport(Date(), name, true, false);
     } else {
         cout << "If you want to get the report about all names you can enter 'ALL', if you want a specific name enter 'NOALL': ";
-        char nameBuff[1024];
-        cin.getline(nameBuff, 1024);
-        String checkNameDesire(nameBuff);
+        // char nameBuff[1024];
+        // cin.getline(nameBuff, 1024);
+        // String checkNameDesire(nameBuff);
+        String checkNameDesire = enterString();
         if (checkNameDesire == "ALL") {
             cout << "Enter the date: ";
             Date date = enterDate();
@@ -208,6 +210,35 @@ void saveReservationsReport(TicketOffice& ticketOffice)
             cout << "Enter the name of the show: ";
             String name = enterString();
             ticketOffice.reservedSeatsReport(date, name, false, false);
+        }
+    }
+}
+
+void printBoughtReport(TicketOffice& ticketOffice)
+{
+    cout << "You have selected the option to view the report about the bought tickets!\n";
+    cout << "If you want to get the report concerning all the rooms you can enter 'ALL', if you want to view only the progress for a specific room enter 'NOALL': ";
+    char roomDesireBuff[1024];
+    cin.get();
+    cin.getline(roomDesireBuff, 1024);
+    String checkRoomDesire(roomDesireBuff);
+    cout << "Now you need to add a starting date: ";
+    Date fromDate = enterDate();
+    cout << "Now enter an end date (remember that the end date should be after the starting date): ";
+    Date toDate = enterDate();
+
+    if (checkRoomDesire == "ALL") {
+        if (!ticketOffice.boughtSeatsReport(fromDate, toDate, Room(), true, avaluableRooms, avaluableRoomsCount)) {
+            cout << "Something went wrong with the report...\n";
+            cout << "Please check your data and try again.\n";
+        }
+    } else {
+        cout << "Now enter the desired room for the report (avaluable rooms are from number 1 to " << avaluableRoomsCount << "): ";
+        size_t roomChoice;
+        cin >> roomChoice;
+        if (!ticketOffice.boughtSeatsReport(fromDate, toDate, avaluableRooms[roomChoice - 1])) {
+            cout << "Something went wrong with the report...\n";
+            cout << "Please check your data and try again.\n";
         }
     }
 }
@@ -248,6 +279,7 @@ int main()
             break;
         }
         case '7': {
+            printBoughtReport(ticketOffice);
             break;
         }
         case '8': {
