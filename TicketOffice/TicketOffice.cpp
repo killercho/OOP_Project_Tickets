@@ -92,7 +92,6 @@ void TicketOffice::reservedSeatsReport(const Date& date, const String& name, con
     String reportName = (allNames ? "ALL" : name);
     reportFileName += reportName;
     reportFileName += "-";
-
     String dateString;
     if (!allDates) {
         dateString += date.getStringDay();
@@ -104,7 +103,6 @@ void TicketOffice::reservedSeatsReport(const Date& date, const String& name, con
         dateString = "ALL";
 
     reportFileName += dateString;
-    std::cout << reportFileName;
     reportFileName += ".txt";
 
     std::ofstream file(reportFileName.getStr());

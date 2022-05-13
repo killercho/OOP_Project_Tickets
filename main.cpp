@@ -182,9 +182,48 @@ void buyTicket(TicketOffice& ticketOffice)
     }
 }
 
+void saveReservationsReport(TicketOffice& ticketOffice)
+{
+    cout << "You have selected 'Save reservations report to a file'!\n";
+    cout << "If you want to get the report about all dates you can enter 'ALL', if you want a specific date enter 'NOALL': ";
+    String checkDateDesire = enterString();
+    if (checkDateDesire == "ALL") {
+        cout << "Now enter the name of the show: ";
+        char nameBuff[1024];
+        cin.getline(nameBuff, 1024);
+        String name(nameBuff);
+        ticketOffice.reservedSeatsReport(Date(), name, true, false);
+    } else {
+        cout << "If you want to get the report about all names you can enter 'ALL', if you want a specific name enter 'NOALL': ";
+        char nameBuff[1024];
+        cin.getline(nameBuff, 1024);
+        String checkNameDesire(nameBuff);
+        if (checkNameDesire == "ALL") {
+            cout << "Enter the date: ";
+            Date date = enterDate();
+            ticketOffice.reservedSeatsReport(date, String(), false, true);
+        } else {
+            cout << "Enter the date of the show: ";
+            String name = enterString();
+            cout << "Enter the name of the show: ";
+            Date date = enterDate();
+            ticketOffice.reservedSeatsReport(date, name, false, false);
+        }
+    }
+    cout << '\n';
+}
+
 int main()
 {
     TicketOffice ticketOffice;
+
+    /*
+    Date date;
+    String name("something");
+    ticketOffice.addShow(date, name, avaluableRooms[0]);
+    ticketOffice.buyTicket(date, name, 1, 1);
+    ticketOffice.reservedSeatsReport(date, name);
+*/
 
     bool menuActive = true;
     while (menuActive) {
@@ -214,6 +253,7 @@ int main()
             break;
         }
         case '6': {
+            saveReservationsReport(ticketOffice);
             break;
         }
         case '7': {

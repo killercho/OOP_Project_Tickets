@@ -68,8 +68,11 @@ bool String::operator==(const String& other) const
 
 String& String::operator+=(const String& other)
 {
-    strcat(str, other.str);
-    size += other.size;
+    size += other.size + 1;
+    char* newStr = new char[size];
+    strcpy(newStr, str);
+    strcat(newStr, other.str);
+    str = newStr;
     return *this;
 }
 
@@ -82,9 +85,10 @@ String operator+(const String& first, const String& second)
 
 std::ostream& operator<<(std::ostream& os, const String& other)
 {
-    os.write((const char*)&other.size, sizeof(other.size));
-    os.write(other.str, other.size);
+    // os.write((const char*)&other.size, sizeof(other.size));
+    // os.write(other.str, other.size);
 
+    os << other.str;
     return os;
 }
 
