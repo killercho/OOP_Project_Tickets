@@ -204,26 +204,17 @@ void saveReservationsReport(TicketOffice& ticketOffice)
             ticketOffice.reservedSeatsReport(date, String(), false, true);
         } else {
             cout << "Enter the date of the show: ";
-            String name = enterString();
-            cout << "Enter the name of the show: ";
             Date date = enterDate();
+            cout << "Enter the name of the show: ";
+            String name = enterString();
             ticketOffice.reservedSeatsReport(date, name, false, false);
         }
     }
-    cout << '\n';
 }
 
 int main()
 {
     TicketOffice ticketOffice;
-
-    /*
-    Date date;
-    String name("something");
-    ticketOffice.addShow(date, name, avaluableRooms[0]);
-    ticketOffice.buyTicket(date, name, 1, 1);
-    ticketOffice.reservedSeatsReport(date, name);
-*/
 
     bool menuActive = true;
     while (menuActive) {
