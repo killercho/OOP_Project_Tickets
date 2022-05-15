@@ -3,6 +3,9 @@
 
 #include <cstring>
 
+/**
+ * Tempalte Vector class which imitates a dynamic array.
+ * */
 template <typename T>
 class Vector {
 private:
@@ -27,8 +30,8 @@ public:
 
     size_t getSize() const;
 
-    const T& operator[](size_t index) const;
-    T& operator[](size_t index);
+    const T& operator[](size_t index) const; //!< Used to get a value in the array on a specific position in the array without the oprion of changing it.
+    T& operator[](size_t index);             //!< Used to get a value in the array on a specific position with the option of changing that value.
 };
 
 template <typename T>

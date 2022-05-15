@@ -17,6 +17,8 @@ void Ticket::increaseReservedState()
 void Ticket::clearReservedState()
 {
     isReserved = 0;
+    description = "";
+    password = "";
 }
 
 short Ticket::getReservedState() const
