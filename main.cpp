@@ -45,7 +45,7 @@ void addShowInput(TicketOffice& ticketOffice)
     short roomIndex;
     cin >> roomIndex;
     if (!ticketOffice.addShow(date, name, avaluableRooms[roomIndex - 1]))
-        cout << "Adding failed! There is a show in the same room on the same date!\n";
+        cout << "Adding failed! There is a show in the same room on the same date or the date was not correct!\n";
     else
         cout << "Successfully added a show on "
              << date.getStringDay() << "/" << date.getStringMonth() << "/" << date.getStringYear()

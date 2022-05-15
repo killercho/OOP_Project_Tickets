@@ -13,13 +13,15 @@ private:
     unsigned short day;
     unsigned short month;
     unsigned year;
+    bool isDateCorrect = true; //!< Used to check whether the date is not correct during runtime.
 
     static const unsigned short DEFAULT_DAY = 1;   //!< Default value for the day, used in the default constructor.
     static const unsigned short DEFAULT_MONTH = 1; //!< Default value for the month, used in the default constructor.
     static const unsigned DEFAULT_YEAR = 2022;     //!< Default value for the year, used in the default constructor.
-    static unsigned short daysInMonth[12];
+    unsigned short daysInMonth[12];
 
-    void isYearLeap(); //!< Function used to change the 'february' value in daysInMonth array.
+    void isYearLeap();          //!< Function used to change the 'february' value in daysInMonth array.
+    void populateDaysInMonth(); //!< Function used to populate the array with days depending on whether the year is leap.
 
 public:
     Date(const unsigned short day = DEFAULT_DAY, const unsigned short month = DEFAULT_MONTH, const unsigned year = DEFAULT_YEAR);
@@ -29,6 +31,7 @@ public:
     unsigned short getDay() const;
     unsigned short getMonth() const;
     unsigned getYear() const;
+    bool getIsDateCorrect() const;
 
     String getStringDay() const;
     String getStringMonth() const;

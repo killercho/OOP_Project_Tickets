@@ -1,6 +1,6 @@
 # Add dependencies to main:
 main: main.o ./String/String.o ./Date/Date.o ./Room/Room.o ./Ticket/Ticket.o ./Show/Show.o ./TicketOffice/TicketOffice.o
-	g++ -o main main.o ./String/String.o ./Date/Date.o ./Room/Room.o ./Ticket/Ticket.o ./Show/Show.o ./TicketOffice/TicketOffice.o
+	g++ -g -o main main.o ./String/String.o ./Date/Date.o ./Room/Room.o ./Ticket/Ticket.o ./Show/Show.o ./TicketOffice/TicketOffice.o
 
 # Add header files used in main:
 main.o: main.cpp ./String/String.h ./Date/Date.h ./Room/Room.h ./Ticket/Ticket.h ./Show/Show.h ./Vector/Vector.h ./TicketOffice/TicketOffice.h
@@ -23,3 +23,7 @@ Vector.o: ./Vector/Vector.h
 
 #Add header files used in ./TicketOffice/TicketOffice.o:
 TicketOffice.o: ./TicketOffice/TicketOffice.h
+
+#Add clean functionality:
+clean:
+	rm ./String/String.o ./Date/Date.o ./Room/Room.o ./Ticket/Ticket.o ./Show/Show.o ./TicketOffice/TicketOffice.o

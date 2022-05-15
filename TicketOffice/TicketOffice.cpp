@@ -21,7 +21,7 @@ size_t TicketOffice::searchedShowIndex(const Date& date, const Room& room)
 
 bool TicketOffice::addShow(const Date& date, const String& name, const Room& room)
 {
-    if (searchedShowIndex(date, room) != -1)
+    if (searchedShowIndex(date, room) != -1 || !date.getIsDateCorrect())
         return false;
     shows.push(Show(name, room, date));
     return true;

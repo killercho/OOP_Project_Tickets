@@ -1,37 +1,63 @@
 #include "Date.h"
-
-unsigned short Date::daysInMonth[12] = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
+#include <iostream>
 
 Date::Date(const unsigned short day, const unsigned short month, const unsigned year)
 {
     setYear(year);
     setMonth(month);
+    populateDaysInMonth();
     setDay(day);
 }
 
 void Date::setYear(const unsigned int year)
 {
     this->year = year;
+    if (year > 9999)
+        isDateCorrect = false;
 }
 
 void Date::setMonth(unsigned short month)
 {
-    if (month == 0 || month > 12)
+    if (month == 0 || month > 12) {
         month = DEFAULT_MONTH;
+        isDateCorrect = false;
+    }
     this->month = month;
 }
 
 void Date::setDay(unsigned short day)
 {
-    if (day > daysInMonth[month - 1])
+    if (day > daysInMonth[month - 1]) {
         day = DEFAULT_DAY;
+        isDateCorrect = false;
+    }
     this->day = day;
+}
+
+void Date::populateDaysInMonth()
+{
+    for (short i = 0; i < 7; ++i) {
+        if (i % 2 == 0)
+            daysInMonth[i] = 31;
+        if (i % 2 == 1)
+            daysInMonth[i] = 30;
+        if (i == 1)
+            isYearLeap();
+    }
+    for (short i = 7; i < 12; ++i) {
+        if (i % 2 == 0)
+            daysInMonth[i] = 30;
+        else
+            daysInMonth[i] = 31;
+    }
 }
 
 void Date::isYearLeap()
 {
     if (((year % 4 == 0) && (year % 100 != 0)) || (year % 400 == 0))
         daysInMonth[1] = 29;
+    else
+        daysInMonth[1] = 28;
 }
 
 bool Date::operator==(const Date& other) const
@@ -52,6 +78,11 @@ unsigned short Date::getMonth() const
 unsigned Date::getYear() const
 {
     return year;
+}
+
+bool Date::getIsDateCorrect() const
+{
+    return isDateCorrect;
 }
 
 std::ostream& operator<<(std::ostream& os, const Date& other)
@@ -76,7 +107,7 @@ std::istream& operator>>(std::istream& is, Date& other)
 
 void Date::increaseDay()
 {
-    if (day + 1 > daysInMonth[month]) {
+    if (day + 1 > daysInMonth[month - 1]) {
         setDay(1);
         if (month + 1 > 12) {
             setMonth(1);
