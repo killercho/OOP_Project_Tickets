@@ -12,7 +12,6 @@ Date::Date(const unsigned short day, const unsigned short month, const unsigned 
 void Date::setYear(const unsigned int year)
 {
     this->year = year;
-    isYearLeap();
 }
 
 void Date::setMonth(unsigned short month)

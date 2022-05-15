@@ -189,17 +189,15 @@ void saveReservationsReport(TicketOffice& ticketOffice)
     String checkDateDesire = enterString();
     if (checkDateDesire == "ALL") {
         cout << "Now enter the name of the show: ";
-        String name = enterString();
-        // char nameBuff[1024];
-        // cin.getline(nameBuff, 1024);
-        // String name(nameBuff);
+        char nameBuff[1024];
+        cin.getline(nameBuff, 1024);
+        String name(nameBuff);
         ticketOffice.reservedSeatsReport(Date(), name, true, false);
     } else {
         cout << "If you want to get the report about all names you can enter 'ALL', if you want a specific name enter 'NOALL': ";
-        // char nameBuff[1024];
-        // cin.getline(nameBuff, 1024);
-        // String checkNameDesire(nameBuff);
-        String checkNameDesire = enterString();
+        char nameBuff[1024];
+        cin.getline(nameBuff, 1024);
+        String checkNameDesire(nameBuff);
         if (checkNameDesire == "ALL") {
             cout << "Enter the date: ";
             Date date = enterDate();

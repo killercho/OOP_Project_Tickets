@@ -17,7 +17,7 @@ private:
     static const unsigned short DEFAULT_DAY = 1;   //!< Default value for the day, used in the default constructor.
     static const unsigned short DEFAULT_MONTH = 1; //!< Default value for the month, used in the default constructor.
     static const unsigned DEFAULT_YEAR = 2022;     //!< Default value for the year, used in the default constructor.
-    static unsigned short daysInMonth[12];         //!< Array filled with the number of days in a month. Used later in the project for easier check if the day is more than the avaluable days in that month.
+    static unsigned short daysInMonth[12];
 
     void isYearLeap(); //!< Function used to change the 'february' value in daysInMonth array.
 
