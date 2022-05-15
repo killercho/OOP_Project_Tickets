@@ -1,0 +1,51 @@
+\hypertarget{Date_8h_source}{}\doxysection{Date.\+h}
+\label{Date_8h_source}\index{Date/Date.h@{Date/Date.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef DATE\_H}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define DATE\_H}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include "{}../String/String.h"{}}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include <cstring>}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include <iostream>}}
+\DoxyCodeLine{7 }
+\DoxyCodeLine{11 \textcolor{keyword}{class }\mbox{\hyperlink{classDate}{Date}} \{}
+\DoxyCodeLine{12 \textcolor{keyword}{private}:}
+\DoxyCodeLine{13     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{short} day;}
+\DoxyCodeLine{14     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{short} month;}
+\DoxyCodeLine{15     \textcolor{keywordtype}{unsigned} year;}
+\DoxyCodeLine{16 }
+\DoxyCodeLine{17     \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{short} DEFAULT\_DAY = 1;   }
+\DoxyCodeLine{18     \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{short} DEFAULT\_MONTH = 1; }
+\DoxyCodeLine{19     \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{unsigned} DEFAULT\_YEAR = 2022;     }
+\DoxyCodeLine{20     \textcolor{keyword}{static} \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{short} daysInMonth[12];         }
+\DoxyCodeLine{21 }
+\DoxyCodeLine{22     \textcolor{keywordtype}{void} isYearLeap(); }
+\DoxyCodeLine{23 }
+\DoxyCodeLine{24 \textcolor{keyword}{public}:}
+\DoxyCodeLine{25     \mbox{\hyperlink{classDate}{Date}}(\textcolor{keyword}{const} \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{short} day = DEFAULT\_DAY, \textcolor{keyword}{const} \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{short} month = DEFAULT\_MONTH, \textcolor{keyword}{const} \textcolor{keywordtype}{unsigned} year = DEFAULT\_YEAR);}
+\DoxyCodeLine{26 }
+\DoxyCodeLine{27     \textcolor{keywordtype}{void} \mbox{\hyperlink{classDate_ab80501a7460e3e13c86fa5934fccd39d}{increaseDay}}(); }
+\DoxyCodeLine{28 }
+\DoxyCodeLine{29     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{short} getDay() \textcolor{keyword}{const};}
+\DoxyCodeLine{30     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{short} getMonth() \textcolor{keyword}{const};}
+\DoxyCodeLine{31     \textcolor{keywordtype}{unsigned} getYear() \textcolor{keyword}{const};}
+\DoxyCodeLine{32 }
+\DoxyCodeLine{33     \mbox{\hyperlink{classString}{String}} getStringDay() \textcolor{keyword}{const};}
+\DoxyCodeLine{34     \mbox{\hyperlink{classString}{String}} getStringMonth() \textcolor{keyword}{const};}
+\DoxyCodeLine{35     \mbox{\hyperlink{classString}{String}} getStringYear() \textcolor{keyword}{const};}
+\DoxyCodeLine{36 }
+\DoxyCodeLine{37     \textcolor{keywordtype}{void} setDay(\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{short} day);}
+\DoxyCodeLine{38     \textcolor{keywordtype}{void} setMonth(\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{short} month);}
+\DoxyCodeLine{39     \textcolor{keywordtype}{void} setYear(\textcolor{keyword}{const} \textcolor{keywordtype}{unsigned} year);}
+\DoxyCodeLine{40 }
+\DoxyCodeLine{41     \textcolor{keyword}{friend} std::ostream\& operator<<(std::ostream\& os, \textcolor{keyword}{const} \mbox{\hyperlink{classDate}{Date}}\& other);}
+\DoxyCodeLine{42     \textcolor{keyword}{friend} std::istream\& operator>>(std::istream\& is, \mbox{\hyperlink{classDate}{Date}}\& other);}
+\DoxyCodeLine{43 }
+\DoxyCodeLine{44     \textcolor{keywordtype}{bool} \mbox{\hyperlink{classDate_ab2943ef426612046e084e2d885c5fed4}{operator>}}(\textcolor{keyword}{const} \mbox{\hyperlink{classDate}{Date}}\& other) \textcolor{keyword}{const};  }
+\DoxyCodeLine{45     \textcolor{keywordtype}{bool} \mbox{\hyperlink{classDate_a3b103cc8257d3055aedb519fff343503}{operator==}}(\textcolor{keyword}{const} \mbox{\hyperlink{classDate}{Date}}\& other) \textcolor{keyword}{const}; }
+\DoxyCodeLine{46 \};}
+\DoxyCodeLine{47 }
+\DoxyCodeLine{48 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

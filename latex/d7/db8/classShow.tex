@@ -1,0 +1,78 @@
+\hypertarget{classShow}{}\doxysection{Show Class Reference}
+\label{classShow}\index{Show@{Show}}
+
+
+{\ttfamily \#include $<$Show.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classShow_ab8abab0dad99478120d186ec2b97924b}\label{classShow_ab8abab0dad99478120d186ec2b97924b}} 
+{\bfseries Show} (const \mbox{\hyperlink{classString}{String}} \&name=DEFAULT\+\_\+\+STRING, const \mbox{\hyperlink{classRoom}{Room}} \&room=DEFAULT\+\_\+\+ROOM, const \mbox{\hyperlink{classDate}{Date}} \&date=DEFAULT\+\_\+\+DATE)
+\item 
+\mbox{\Hypertarget{classShow_acc1dce568951c2aca362769d7cec9428}\label{classShow_acc1dce568951c2aca362769d7cec9428}} 
+\mbox{\hyperlink{classString}{String}} {\bfseries get\+Name} () const
+\item 
+\mbox{\Hypertarget{classShow_a643f79bebed0e45cdea12a119943f68d}\label{classShow_a643f79bebed0e45cdea12a119943f68d}} 
+\mbox{\hyperlink{classRoom}{Room}} {\bfseries get\+Room} () const
+\item 
+\mbox{\Hypertarget{classShow_aa1463d1d30cadffaea9e74e6e9eb2fe0}\label{classShow_aa1463d1d30cadffaea9e74e6e9eb2fe0}} 
+\mbox{\hyperlink{classDate}{Date}} {\bfseries get\+Date} () const
+\item 
+\mbox{\Hypertarget{classShow_a69a44270801a411289b1ccfbdabbaac7}\label{classShow_a69a44270801a411289b1ccfbdabbaac7}} 
+bool {\bfseries operator==} (const \mbox{\hyperlink{classShow}{Show}} \&other) const
+\begin{DoxyCompactList}\small\item\em Operator \textquotesingle{}==\textquotesingle{} used to check if a show is the same as another show. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classShow_a5bbf697d279eb8860104e30bbc919046}\label{classShow_a5bbf697d279eb8860104e30bbc919046}} 
+bool {\bfseries is\+Room\+Free} (const \mbox{\hyperlink{classDate}{Date}} \&check\+Date) const
+\begin{DoxyCompactList}\small\item\em Checks if the room is free on the date given as an argument. Returns true if the room is free. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classShow_aa6d4ffb1a698817d9dbce2c35728f94a}\label{classShow_aa6d4ffb1a698817d9dbce2c35728f94a}} 
+bool {\bfseries is\+Seat\+Taken} (const size\+\_\+t row, const size\+\_\+t seat\+On\+Row) const
+\begin{DoxyCompactList}\small\item\em Checks if that seat on that row is already taken. Returns true if the seat is free. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classString}{String}} \mbox{\hyperlink{classShow_abead32708c1e47cf0953e955a4afcd41}{reserve\+Ticket}} (const size\+\_\+t row, const size\+\_\+t seat\+On\+Row, const \mbox{\hyperlink{classString}{String}} \&password, const \mbox{\hyperlink{classString}{String}} \&desc=\char`\"{}\char`\"{})
+\item 
+\mbox{\hyperlink{classString}{String}} \mbox{\hyperlink{classShow_a2f65d71161fc50fb39915d4870f001ea}{remove\+Reservation}} (const size\+\_\+t row, const size\+\_\+t seat\+On\+Row, const \mbox{\hyperlink{classString}{String}} \&password, const \mbox{\hyperlink{classString}{String}} \&desc=\char`\"{}\char`\"{})
+\item 
+short \mbox{\hyperlink{classShow_a00456b337e362ac14ce4ca5169a9106d}{buy\+Ticket}} (const size\+\_\+t row, const size\+\_\+t seat\+On\+Row)
+\item 
+\mbox{\Hypertarget{classShow_ab1a94323fec7def02c11883ad898373c}\label{classShow_ab1a94323fec7def02c11883ad898373c}} 
+short {\bfseries buy\+Ticket} (const size\+\_\+t row, const size\+\_\+t seat\+On\+Row, const \mbox{\hyperlink{classString}{String}} \&password)
+\item 
+\mbox{\Hypertarget{classShow_a7523a17d5b9d386f1aa089a8dcffb81b}\label{classShow_a7523a17d5b9d386f1aa089a8dcffb81b}} 
+size\+\_\+t {\bfseries free\+Seats} () const
+\begin{DoxyCompactList}\small\item\em Returns the number of unreserved and not bought seats in a \textquotesingle{}size\+\_\+t\textquotesingle{} type. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classShow_aab9d08b0e6de2b8f0cc9f57999859856}\label{classShow_aab9d08b0e6de2b8f0cc9f57999859856}} 
+size\+\_\+t {\bfseries reserve\+List} () const
+\begin{DoxyCompactList}\small\item\em Returns the number of reserved seats in a \textquotesingle{}size\+\_\+t\textquotesingle{} type. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classShow_a99d75dc017103efe720cd3e694d20c13}\label{classShow_a99d75dc017103efe720cd3e694d20c13}} 
+size\+\_\+t {\bfseries bought\+List} () const
+\begin{DoxyCompactList}\small\item\em Returns the number of bought seats in a \textquotesingle{}size\+\_\+t\textquotesingle{} type. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A \mbox{\hyperlink{classShow}{Show}} class used to store infromation about the shows. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classShow_a00456b337e362ac14ce4ca5169a9106d}\label{classShow_a00456b337e362ac14ce4ca5169a9106d}} 
+\index{Show@{Show}!buyTicket@{buyTicket}}
+\index{buyTicket@{buyTicket}!Show@{Show}}
+\doxysubsubsection{\texorpdfstring{buyTicket()}{buyTicket()}}
+{\footnotesize\ttfamily short Show\+::buy\+Ticket (\begin{DoxyParamCaption}\item[{const size\+\_\+t}]{row,  }\item[{const size\+\_\+t}]{seat\+On\+Row }\end{DoxyParamCaption})}
+
+Function used to buy a ticket on a specific seat on a row. If the user wants to buy an unreserved spot the password is not needed, then the function without the \textquotesingle{}password\textquotesingle{} argument is called. In the opposite case the function with \textquotesingle{}password\textquotesingle{} argument is called. Returns 0 if the tansaction passed. Returns 1 if the seat is taken. Returns 2 if the password is wrong. Returns 3 if the user tried to buy a reserved ticket without entering a password. \mbox{\Hypertarget{classShow_a2f65d71161fc50fb39915d4870f001ea}\label{classShow_a2f65d71161fc50fb39915d4870f001ea}} 
+\index{Show@{Show}!removeReservation@{removeReservation}}
+\index{removeReservation@{removeReservation}!Show@{Show}}
+\doxysubsubsection{\texorpdfstring{removeReservation()}{removeReservation()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classString}{String}} Show\+::remove\+Reservation (\begin{DoxyParamCaption}\item[{const size\+\_\+t}]{row,  }\item[{const size\+\_\+t}]{seat\+On\+Row,  }\item[{const \mbox{\hyperlink{classString}{String}} \&}]{password,  }\item[{const \mbox{\hyperlink{classString}{String}} \&}]{desc = {\ttfamily \char`\"{}\char`\"{}} }\end{DoxyParamCaption})}
+
+Function used to remove the reservation of a seat. To remove the reservation the user needs to enter the row and seat which he reserved, then enter the password used for reservation. If the user entered a description he/she needs to enter that as well. But since it\textquotesingle{}s optional the default value is \char`\"{}\char`\"{}. After all the infromation is correct the state of the ticket goes back to 0, meaning unreserved. In the end the function returns a \mbox{\hyperlink{classString}{String}} used to convey any errors or the successful transaction. \mbox{\Hypertarget{classShow_abead32708c1e47cf0953e955a4afcd41}\label{classShow_abead32708c1e47cf0953e955a4afcd41}} 
+\index{Show@{Show}!reserveTicket@{reserveTicket}}
+\index{reserveTicket@{reserveTicket}!Show@{Show}}
+\doxysubsubsection{\texorpdfstring{reserveTicket()}{reserveTicket()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classString}{String}} Show\+::reserve\+Ticket (\begin{DoxyParamCaption}\item[{const size\+\_\+t}]{row,  }\item[{const size\+\_\+t}]{seat\+On\+Row,  }\item[{const \mbox{\hyperlink{classString}{String}} \&}]{password,  }\item[{const \mbox{\hyperlink{classString}{String}} \&}]{desc = {\ttfamily \char`\"{}\char`\"{}} }\end{DoxyParamCaption})}
+
+Function used to reserve a ticket on the specific row and seat. Reserving a seat requires the user to enter a password as well. Entering a description is optional. After that the function changes the state of the ticket from 0 -\/\texorpdfstring{$>$}{>} 1 and saves the password and description in that specific ticket. In the end the function returns a \mbox{\hyperlink{classString}{String}} used to convey any errors or the successful transaction. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Show/Show.\+h\item 
+Show/Show.\+cpp\end{DoxyCompactItemize}

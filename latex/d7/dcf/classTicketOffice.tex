@@ -1,0 +1,78 @@
+\hypertarget{classTicketOffice}{}\doxysection{Ticket\+Office Class Reference}
+\label{classTicketOffice}\index{TicketOffice@{TicketOffice}}
+
+
+{\ttfamily \#include $<$Ticket\+Office.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{classTicketOffice_a9be26534d341ff8e93cc5e6c783f35cc}{add\+Show}} (const \mbox{\hyperlink{classDate}{Date}} \&date, const \mbox{\hyperlink{classString}{String}} \&name, const \mbox{\hyperlink{classRoom}{Room}} \&room)
+\item 
+\mbox{\hyperlink{classString}{String}} \mbox{\hyperlink{classTicketOffice_ac8fac6104bd5b1d82894424e41f39156}{reserve\+Ticket}} (const \mbox{\hyperlink{classDate}{Date}} \&date, const \mbox{\hyperlink{classString}{String}} \&name, const size\+\_\+t row, const size\+\_\+t seat\+On\+Row, const \mbox{\hyperlink{classString}{String}} \&password, const \mbox{\hyperlink{classString}{String}} \&desc=\char`\"{}\char`\"{})
+\item 
+\mbox{\hyperlink{classString}{String}} \mbox{\hyperlink{classTicketOffice_ab7092a0f7d4d5e74ad874e509a752106}{remove\+Reservation}} (const \mbox{\hyperlink{classDate}{Date}} \&date, const \mbox{\hyperlink{classString}{String}} \&name, const size\+\_\+t row, const size\+\_\+t seat\+On\+Row, const \mbox{\hyperlink{classString}{String}} \&password, const \mbox{\hyperlink{classString}{String}} \&desc=\char`\"{}\char`\"{})
+\item 
+short \mbox{\hyperlink{classTicketOffice_a6b2c0e187b56140bbf538ab3a5b4d13f}{buy\+Ticket}} (const \mbox{\hyperlink{classDate}{Date}} \&date, const \mbox{\hyperlink{classString}{String}} \&name, const size\+\_\+t row, const size\+\_\+t seat\+On\+Row)
+\item 
+\mbox{\Hypertarget{classTicketOffice_a891642a39f1fcd45f988ba3b66ef82ed}\label{classTicketOffice_a891642a39f1fcd45f988ba3b66ef82ed}} 
+short {\bfseries buy\+Ticket} (const \mbox{\hyperlink{classDate}{Date}} \&date, const \mbox{\hyperlink{classString}{String}} \&name, const size\+\_\+t row, const size\+\_\+t seat\+On\+Row, const \mbox{\hyperlink{classString}{String}} \&password)
+\item 
+\mbox{\Hypertarget{classTicketOffice_aeb9921a627dd55ff8dcb92b66f6396ed}\label{classTicketOffice_aeb9921a627dd55ff8dcb92b66f6396ed}} 
+size\+\_\+t {\bfseries free\+Seats\+Report} (const \mbox{\hyperlink{classDate}{Date}} \&date, const \mbox{\hyperlink{classString}{String}} \&name)
+\begin{DoxyCompactList}\small\item\em Returns the number of the free seats on that date for a show with that name, in a type \textquotesingle{}size\+\_\+t\textquotesingle{}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classTicketOffice_a7246292754a7496460e06b43f5430a6b}{reserved\+Seats\+Report}} (const \mbox{\hyperlink{classDate}{Date}} \&date, const \mbox{\hyperlink{classString}{String}} \&name, const bool all\+Dates=false, const bool all\+Names=false)
+\item 
+bool \mbox{\hyperlink{classTicketOffice_acfcfb766b8701161e45bf654014d092b}{bought\+Seats\+Report}} (\mbox{\hyperlink{classDate}{Date}} \&from\+Date, const \mbox{\hyperlink{classDate}{Date}} \&to\+Date, const \mbox{\hyperlink{classRoom}{Room}} \&room=\mbox{\hyperlink{classRoom}{Room}}(), const bool all\+Rooms=false, const \mbox{\hyperlink{classRoom}{Room}} $\ast$rooms\+Arr=nullptr, const size\+\_\+t room\+Count=0)
+\item 
+\mbox{\Hypertarget{classTicketOffice_a5cdad6bbcf702c8938c2680f74e2c63a}\label{classTicketOffice_a5cdad6bbcf702c8938c2680f74e2c63a}} 
+void {\bfseries print\+Ticket\+Office\+Manual} () const
+\begin{DoxyCompactList}\small\item\em Prints the main menu. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A \mbox{\hyperlink{classTicketOffice}{Ticket\+Office}} class that stores information about all the shows an office can have. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classTicketOffice_a9be26534d341ff8e93cc5e6c783f35cc}\label{classTicketOffice_a9be26534d341ff8e93cc5e6c783f35cc}} 
+\index{TicketOffice@{TicketOffice}!addShow@{addShow}}
+\index{addShow@{addShow}!TicketOffice@{TicketOffice}}
+\doxysubsubsection{\texorpdfstring{addShow()}{addShow()}}
+{\footnotesize\ttfamily bool Ticket\+Office\+::add\+Show (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classDate}{Date}} \&}]{date,  }\item[{const \mbox{\hyperlink{classString}{String}} \&}]{name,  }\item[{const \mbox{\hyperlink{classRoom}{Room}} \&}]{room }\end{DoxyParamCaption})}
+
+Adds a show in the vector, using the date, name and room. Returns false if the room is for that show is taken on that date, then the adding is not done. Returns true if the operation succeeded. \mbox{\Hypertarget{classTicketOffice_acfcfb766b8701161e45bf654014d092b}\label{classTicketOffice_acfcfb766b8701161e45bf654014d092b}} 
+\index{TicketOffice@{TicketOffice}!boughtSeatsReport@{boughtSeatsReport}}
+\index{boughtSeatsReport@{boughtSeatsReport}!TicketOffice@{TicketOffice}}
+\doxysubsubsection{\texorpdfstring{boughtSeatsReport()}{boughtSeatsReport()}}
+{\footnotesize\ttfamily bool Ticket\+Office\+::bought\+Seats\+Report (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classDate}{Date}} \&}]{from\+Date,  }\item[{const \mbox{\hyperlink{classDate}{Date}} \&}]{to\+Date,  }\item[{const \mbox{\hyperlink{classRoom}{Room}} \&}]{room = {\ttfamily \mbox{\hyperlink{classRoom}{Room}}()},  }\item[{const bool}]{all\+Rooms = {\ttfamily false},  }\item[{const \mbox{\hyperlink{classRoom}{Room}} $\ast$}]{rooms\+Arr = {\ttfamily nullptr},  }\item[{const size\+\_\+t}]{room\+Count = {\ttfamily 0} }\end{DoxyParamCaption})}
+
+A function that prints the number of bought seats for a given period of time for a given room. If the user entered \textquotesingle{}ALL\textquotesingle{} when asked for the room, the \textquotesingle{}all\+Rooms\textquotesingle{} flag is switched to true, the programme prints a report for that period for all rooms separately. When the function is called with the \textquotesingle{}all\+Rooms\textquotesingle{} flag with value true, the function has to be called with the \textquotesingle{}rooms\+Arr\textquotesingle{} and \textquotesingle{}room\+Count\textquotesingle{} arguments representing the array of all the rooms and the number of those rooms. In the end the function returns true if the function succeeded and false if the first date was more than the second date (meaning the \textquotesingle{}from\+Date\textquotesingle{} is after the \textquotesingle{}to\+Date\textquotesingle{} and the period is not valid). \mbox{\Hypertarget{classTicketOffice_a6b2c0e187b56140bbf538ab3a5b4d13f}\label{classTicketOffice_a6b2c0e187b56140bbf538ab3a5b4d13f}} 
+\index{TicketOffice@{TicketOffice}!buyTicket@{buyTicket}}
+\index{buyTicket@{buyTicket}!TicketOffice@{TicketOffice}}
+\doxysubsubsection{\texorpdfstring{buyTicket()}{buyTicket()}}
+{\footnotesize\ttfamily short Ticket\+Office\+::buy\+Ticket (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classDate}{Date}} \&}]{date,  }\item[{const \mbox{\hyperlink{classString}{String}} \&}]{name,  }\item[{const size\+\_\+t}]{row,  }\item[{const size\+\_\+t}]{seat\+On\+Row }\end{DoxyParamCaption})}
+
+A function used to buy a ticket on a given seat and row for a show on a given date with a given name. If the user tries to buy a reserved spot then the function with \textquotesingle{}password\textquotesingle{} argument should be called. In the other case when the user tries to buy a free spot, the function without a \textquotesingle{}password\textquotesingle{} argument should be called. Returns -\/1 if the show is not in the vector. Returns 0 if the tansaction passed. Returns 1 if the seat is taken. Returns 2 if the password is wrong. Returns 3 if the user tried to buy a reserved ticket without entering a password. \mbox{\Hypertarget{classTicketOffice_ab7092a0f7d4d5e74ad874e509a752106}\label{classTicketOffice_ab7092a0f7d4d5e74ad874e509a752106}} 
+\index{TicketOffice@{TicketOffice}!removeReservation@{removeReservation}}
+\index{removeReservation@{removeReservation}!TicketOffice@{TicketOffice}}
+\doxysubsubsection{\texorpdfstring{removeReservation()}{removeReservation()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classString}{String}} Ticket\+Office\+::remove\+Reservation (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classDate}{Date}} \&}]{date,  }\item[{const \mbox{\hyperlink{classString}{String}} \&}]{name,  }\item[{const size\+\_\+t}]{row,  }\item[{const size\+\_\+t}]{seat\+On\+Row,  }\item[{const \mbox{\hyperlink{classString}{String}} \&}]{password,  }\item[{const \mbox{\hyperlink{classString}{String}} \&}]{desc = {\ttfamily \char`\"{}\char`\"{}} }\end{DoxyParamCaption})}
+
+A function that removes a reservation for a ticket on a given seat and row for a show on a given date with a given name. The removal of a reservation requires a password. Adding a description is optional, depending on whether the user entered a description when reserving the ticket. In the end the function returns a \mbox{\hyperlink{classString}{String}} type, used to convey any errors or the success of the function. \mbox{\Hypertarget{classTicketOffice_a7246292754a7496460e06b43f5430a6b}\label{classTicketOffice_a7246292754a7496460e06b43f5430a6b}} 
+\index{TicketOffice@{TicketOffice}!reservedSeatsReport@{reservedSeatsReport}}
+\index{reservedSeatsReport@{reservedSeatsReport}!TicketOffice@{TicketOffice}}
+\doxysubsubsection{\texorpdfstring{reservedSeatsReport()}{reservedSeatsReport()}}
+{\footnotesize\ttfamily void Ticket\+Office\+::reserved\+Seats\+Report (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classDate}{Date}} \&}]{date,  }\item[{const \mbox{\hyperlink{classString}{String}} \&}]{name,  }\item[{const bool}]{all\+Dates = {\ttfamily false},  }\item[{const bool}]{all\+Names = {\ttfamily false} }\end{DoxyParamCaption})}
+
+A function that saves the number of the reserved seats, for a given date and name, in a file. The file name is \textquotesingle{}report-\/\+DATE-\/\+NAME.\+txt\textquotesingle{}. If the user enters ALL when asked for a date then the \textquotesingle{}all\+Dates\textquotesingle{} flag is switched to true and the file includes the shows with that name from all dates. If the user enters ALL when asked for a name then the \textquotesingle{}all\+Names\textquotesingle{} flag is switched to true and the file includes the shows from that date with all names. \mbox{\Hypertarget{classTicketOffice_ac8fac6104bd5b1d82894424e41f39156}\label{classTicketOffice_ac8fac6104bd5b1d82894424e41f39156}} 
+\index{TicketOffice@{TicketOffice}!reserveTicket@{reserveTicket}}
+\index{reserveTicket@{reserveTicket}!TicketOffice@{TicketOffice}}
+\doxysubsubsection{\texorpdfstring{reserveTicket()}{reserveTicket()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classString}{String}} Ticket\+Office\+::reserve\+Ticket (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classDate}{Date}} \&}]{date,  }\item[{const \mbox{\hyperlink{classString}{String}} \&}]{name,  }\item[{const size\+\_\+t}]{row,  }\item[{const size\+\_\+t}]{seat\+On\+Row,  }\item[{const \mbox{\hyperlink{classString}{String}} \&}]{password,  }\item[{const \mbox{\hyperlink{classString}{String}} \&}]{desc = {\ttfamily \char`\"{}\char`\"{}} }\end{DoxyParamCaption})}
+
+A function that reserves a ticket on a given seat and row for a show on a given date with a given name. The reservation requires a password. Adding a description is optional. In the end the function returns a \mbox{\hyperlink{classString}{String}} type, used to convey any errors or the success of the function. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Ticket\+Office/Ticket\+Office.\+h\item 
+Ticket\+Office/Ticket\+Office.\+cpp\end{DoxyCompactItemize}

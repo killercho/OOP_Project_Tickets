@@ -1,0 +1,41 @@
+\hypertarget{String_8h_source}{}\doxysection{String.\+h}
+\label{String_8h_source}\index{String/String.h@{String/String.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef STRING\_H}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define STRING\_H}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include <iostream>}}
+\DoxyCodeLine{5 }
+\DoxyCodeLine{9 \textcolor{keyword}{class }\mbox{\hyperlink{classString}{String}} \{}
+\DoxyCodeLine{10 \textcolor{keyword}{private}:}
+\DoxyCodeLine{11     \textcolor{keywordtype}{char}* str;}
+\DoxyCodeLine{12     \textcolor{keywordtype}{size\_t} size;}
+\DoxyCodeLine{13 }
+\DoxyCodeLine{14     \textcolor{keywordtype}{void} copy(\textcolor{keyword}{const} \textcolor{keywordtype}{char}* str);}
+\DoxyCodeLine{15     \textcolor{keywordtype}{void} deleteMem();}
+\DoxyCodeLine{16 }
+\DoxyCodeLine{17 \textcolor{keyword}{public}:}
+\DoxyCodeLine{18     \mbox{\hyperlink{classString}{String}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char}* str = \textcolor{stringliteral}{"{}"{}});}
+\DoxyCodeLine{19     \mbox{\hyperlink{classString}{String}}(\textcolor{keyword}{const} \mbox{\hyperlink{classString}{String}}\& other);}
+\DoxyCodeLine{20     \mbox{\hyperlink{classString}{String}}\& operator=(\textcolor{keyword}{const} \mbox{\hyperlink{classString}{String}}\& other);}
+\DoxyCodeLine{21     \mbox{\hyperlink{classString}{\string~String}}();}
+\DoxyCodeLine{22 }
+\DoxyCodeLine{23     \mbox{\hyperlink{classString}{String}}(\mbox{\hyperlink{classString}{String}}\&\& other);}
+\DoxyCodeLine{24     \mbox{\hyperlink{classString}{String}}\& operator=(\mbox{\hyperlink{classString}{String}}\&\& other);}
+\DoxyCodeLine{25 }
+\DoxyCodeLine{26     \textcolor{keywordtype}{size\_t} getSize() \textcolor{keyword}{const};}
+\DoxyCodeLine{27     \textcolor{keyword}{const} \textcolor{keywordtype}{char}* getStr() \textcolor{keyword}{const};}
+\DoxyCodeLine{28 }
+\DoxyCodeLine{29     \textcolor{keywordtype}{bool} operator==(\textcolor{keyword}{const} \mbox{\hyperlink{classString}{String}}\& other) \textcolor{keyword}{const};}
+\DoxyCodeLine{30     \mbox{\hyperlink{classString}{String}}\& \mbox{\hyperlink{classString_ab84728b14cac3bc213351c8ae8fb3364}{operator+=}}(\textcolor{keyword}{const} \mbox{\hyperlink{classString}{String}}\& other); }
+\DoxyCodeLine{31 }
+\DoxyCodeLine{32     \textcolor{keyword}{friend} std::ostream\& operator<<(std::ostream\& os, \textcolor{keyword}{const} \mbox{\hyperlink{classString}{String}}\& other);}
+\DoxyCodeLine{33     \textcolor{keyword}{friend} std::istream\& operator>>(std::istream\& is, \mbox{\hyperlink{classString}{String}}\& other);}
+\DoxyCodeLine{34 \};}
+\DoxyCodeLine{35 }
+\DoxyCodeLine{36 \mbox{\hyperlink{classString}{String}} operator+(\textcolor{keyword}{const} \mbox{\hyperlink{classString}{String}}\& first, \textcolor{keyword}{const} \mbox{\hyperlink{classString}{String}}\& second); }
+\DoxyCodeLine{37 }
+\DoxyCodeLine{38 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

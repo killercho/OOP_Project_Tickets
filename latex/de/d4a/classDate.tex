@@ -1,0 +1,66 @@
+\hypertarget{classDate}{}\doxysection{Date Class Reference}
+\label{classDate}\index{Date@{Date}}
+
+
+{\ttfamily \#include $<$Date.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classDate_a9698fa007f2cba2206929b67f2da545f}\label{classDate_a9698fa007f2cba2206929b67f2da545f}} 
+{\bfseries Date} (const unsigned short day=DEFAULT\+\_\+\+DAY, const unsigned short month=DEFAULT\+\_\+\+MONTH, const unsigned year=DEFAULT\+\_\+\+YEAR)
+\item 
+\mbox{\Hypertarget{classDate_ab80501a7460e3e13c86fa5934fccd39d}\label{classDate_ab80501a7460e3e13c86fa5934fccd39d}} 
+void {\bfseries increase\+Day} ()
+\begin{DoxyCompactList}\small\item\em Increments the day with one. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classDate_af02c2f0b61b6e14efbc3ccb0f7f0d567}\label{classDate_af02c2f0b61b6e14efbc3ccb0f7f0d567}} 
+unsigned short {\bfseries get\+Day} () const
+\item 
+\mbox{\Hypertarget{classDate_ad077bd6ae19462875a8bd10aed9a6233}\label{classDate_ad077bd6ae19462875a8bd10aed9a6233}} 
+unsigned short {\bfseries get\+Month} () const
+\item 
+\mbox{\Hypertarget{classDate_aa1e4066bffc24af79f604dabce27e3cc}\label{classDate_aa1e4066bffc24af79f604dabce27e3cc}} 
+unsigned {\bfseries get\+Year} () const
+\item 
+\mbox{\Hypertarget{classDate_ae93147920d30710a1751a25f8613409c}\label{classDate_ae93147920d30710a1751a25f8613409c}} 
+\mbox{\hyperlink{classString}{String}} {\bfseries get\+String\+Day} () const
+\item 
+\mbox{\Hypertarget{classDate_ab438d7245493a335b0832d50458b9236}\label{classDate_ab438d7245493a335b0832d50458b9236}} 
+\mbox{\hyperlink{classString}{String}} {\bfseries get\+String\+Month} () const
+\item 
+\mbox{\Hypertarget{classDate_a14330c879ab00ea4e5593b6e98160a88}\label{classDate_a14330c879ab00ea4e5593b6e98160a88}} 
+\mbox{\hyperlink{classString}{String}} {\bfseries get\+String\+Year} () const
+\item 
+\mbox{\Hypertarget{classDate_a61e8103c09406f067992e15f36a7f910}\label{classDate_a61e8103c09406f067992e15f36a7f910}} 
+void {\bfseries set\+Day} (unsigned short day)
+\item 
+\mbox{\Hypertarget{classDate_a6f2ab890b1935488aaa604b77caac4ae}\label{classDate_a6f2ab890b1935488aaa604b77caac4ae}} 
+void {\bfseries set\+Month} (unsigned short month)
+\item 
+\mbox{\Hypertarget{classDate_a33dc808ce3f6a2cb01e9e529f46308a4}\label{classDate_a33dc808ce3f6a2cb01e9e529f46308a4}} 
+void {\bfseries set\+Year} (const unsigned year)
+\item 
+\mbox{\Hypertarget{classDate_ab2943ef426612046e084e2d885c5fed4}\label{classDate_ab2943ef426612046e084e2d885c5fed4}} 
+bool {\bfseries operator$>$} (const \mbox{\hyperlink{classDate}{Date}} \&other) const
+\begin{DoxyCompactList}\small\item\em Operator \textquotesingle{}\texorpdfstring{$>$}{>}\textquotesingle{} used to check if a date is bigger than another date. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classDate_a3b103cc8257d3055aedb519fff343503}\label{classDate_a3b103cc8257d3055aedb519fff343503}} 
+bool {\bfseries operator==} (const \mbox{\hyperlink{classDate}{Date}} \&other) const
+\begin{DoxyCompactList}\small\item\em Operator \textquotesingle{}==\textquotesingle{} used to check if a date is the same as another date. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classDate_abaec8eb109147dd5d49d3a75f92834f4}\label{classDate_abaec8eb109147dd5d49d3a75f92834f4}} 
+std\+::ostream \& {\bfseries operator$<$$<$} (std\+::ostream \&os, const \mbox{\hyperlink{classDate}{Date}} \&other)
+\item 
+\mbox{\Hypertarget{classDate_a1b0ddecb7bf26e007d28de9512906cbd}\label{classDate_a1b0ddecb7bf26e007d28de9512906cbd}} 
+std\+::istream \& {\bfseries operator$>$$>$} (std\+::istream \&is, \mbox{\hyperlink{classDate}{Date}} \&other)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A \mbox{\hyperlink{classDate}{Date}} class used to store information about the date in he rest of the project. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Date/Date.\+h\item 
+Date/Date.\+cpp\end{DoxyCompactItemize}

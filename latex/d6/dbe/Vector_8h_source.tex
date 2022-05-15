@@ -1,0 +1,139 @@
+\hypertarget{Vector_8h_source}{}\doxysection{Vector.\+h}
+\label{Vector_8h_source}\index{Vector/Vector.h@{Vector/Vector.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef VECTOR\_H}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define VECTOR\_H}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include <cstring>}}
+\DoxyCodeLine{5 }
+\DoxyCodeLine{9 \textcolor{keyword}{template} <\textcolor{keyword}{typename} T>}
+\DoxyCodeLine{10 \textcolor{keyword}{class }\mbox{\hyperlink{classVector}{Vector}} \{}
+\DoxyCodeLine{11 \textcolor{keyword}{private}:}
+\DoxyCodeLine{12     T* arr;}
+\DoxyCodeLine{13     \textcolor{keywordtype}{size\_t} capacity;}
+\DoxyCodeLine{14     \textcolor{keywordtype}{size\_t} currentSize;}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16     \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{short} DEFAULT\_STARTING\_CAPACITY = 1;}
+\DoxyCodeLine{17 }
+\DoxyCodeLine{18     \textcolor{keywordtype}{void} copy(\textcolor{keyword}{const} T* arr, \textcolor{keyword}{const} \textcolor{keywordtype}{size\_t} capacity, \textcolor{keyword}{const} \textcolor{keywordtype}{size\_t} currentSize);}
+\DoxyCodeLine{19     \textcolor{keywordtype}{void} deleteMem();}
+\DoxyCodeLine{20     \textcolor{keywordtype}{void} resize();}
+\DoxyCodeLine{21 }
+\DoxyCodeLine{22 \textcolor{keyword}{public}:}
+\DoxyCodeLine{23     \mbox{\hyperlink{classVector}{Vector}}();}
+\DoxyCodeLine{24     \mbox{\hyperlink{classVector}{Vector}}(\textcolor{keyword}{const} \mbox{\hyperlink{classVector}{Vector}}\& other);}
+\DoxyCodeLine{25     \mbox{\hyperlink{classVector}{Vector<T>}}\& operator=(\textcolor{keyword}{const} \mbox{\hyperlink{classVector}{Vector<T>}}\& other);}
+\DoxyCodeLine{26     \mbox{\hyperlink{classVector}{\string~Vector}}();}
+\DoxyCodeLine{27 }
+\DoxyCodeLine{28     \textcolor{keywordtype}{void} push(\textcolor{keyword}{const} T\& element);}
+\DoxyCodeLine{29     \textcolor{keywordtype}{void} pop();}
+\DoxyCodeLine{30 }
+\DoxyCodeLine{31     \textcolor{keywordtype}{size\_t} getSize() \textcolor{keyword}{const};}
+\DoxyCodeLine{32 }
+\DoxyCodeLine{33     \textcolor{keyword}{const} T\& \mbox{\hyperlink{classVector_a63cc62738d6c877aed773260d1f5d925}{operator[]}}(\textcolor{keywordtype}{size\_t} index) \textcolor{keyword}{const}; }
+\DoxyCodeLine{34     T\& \mbox{\hyperlink{classVector_a314b19cea6ad9ce76457e24ac8264bd8}{operator[]}}(\textcolor{keywordtype}{size\_t} index);             }
+\DoxyCodeLine{35 \};}
+\DoxyCodeLine{36 }
+\DoxyCodeLine{37 \textcolor{keyword}{template} <\textcolor{keyword}{typename} T>}
+\DoxyCodeLine{38 \textcolor{keywordtype}{void} \mbox{\hyperlink{classVector}{Vector<T>::copy}}(\textcolor{keyword}{const} T* arr, \textcolor{keywordtype}{size\_t} capacity, \textcolor{keywordtype}{size\_t} currentSize)}
+\DoxyCodeLine{39 \{}
+\DoxyCodeLine{40     this-\/>capacity = capacity;}
+\DoxyCodeLine{41     this-\/>currentSize = currentSize;}
+\DoxyCodeLine{42 }
+\DoxyCodeLine{43     this-\/>arr = \textcolor{keyword}{new} T[capacity];}
+\DoxyCodeLine{44     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{size\_t} i = 0; i < currentSize; ++i) \{}
+\DoxyCodeLine{45         this-\/>arr[i] = arr[i];}
+\DoxyCodeLine{46     \}}
+\DoxyCodeLine{47 \}}
+\DoxyCodeLine{48 }
+\DoxyCodeLine{49 \textcolor{keyword}{template} <\textcolor{keyword}{typename} T>}
+\DoxyCodeLine{50 \textcolor{keywordtype}{void} \mbox{\hyperlink{classVector}{Vector<T>::deleteMem}}()}
+\DoxyCodeLine{51 \{}
+\DoxyCodeLine{52     \textcolor{keyword}{delete}[] arr;}
+\DoxyCodeLine{53     arr = \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{54     currentSize = 0;}
+\DoxyCodeLine{55 \}}
+\DoxyCodeLine{56 }
+\DoxyCodeLine{57 \textcolor{keyword}{template} <\textcolor{keyword}{typename} T>}
+\DoxyCodeLine{58 \textcolor{keywordtype}{void} \mbox{\hyperlink{classVector}{Vector<T>::resize}}()}
+\DoxyCodeLine{59 \{}
+\DoxyCodeLine{60     capacity *= 2;}
+\DoxyCodeLine{61     T* tmp = \textcolor{keyword}{new} T[capacity];}
+\DoxyCodeLine{62     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{size\_t} i = 0; i < currentSize; ++i) \{}
+\DoxyCodeLine{63         tmp[i] = arr[i];}
+\DoxyCodeLine{64     \}}
+\DoxyCodeLine{65     \textcolor{keyword}{delete}[] arr;}
+\DoxyCodeLine{66     arr = tmp;}
+\DoxyCodeLine{67     tmp = \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{68 \}}
+\DoxyCodeLine{69 }
+\DoxyCodeLine{70 \textcolor{keyword}{template} <\textcolor{keyword}{typename} T>}
+\DoxyCodeLine{71 \mbox{\hyperlink{classVector}{Vector<T>::Vector}}()}
+\DoxyCodeLine{72 \{}
+\DoxyCodeLine{73     capacity = DEFAULT\_STARTING\_CAPACITY;}
+\DoxyCodeLine{74     currentSize = 0;}
+\DoxyCodeLine{75     arr = \textcolor{keyword}{new} T[DEFAULT\_STARTING\_CAPACITY];}
+\DoxyCodeLine{76 \}}
+\DoxyCodeLine{77 }
+\DoxyCodeLine{78 \textcolor{keyword}{template} <\textcolor{keyword}{typename} T>}
+\DoxyCodeLine{79 \mbox{\hyperlink{classVector}{Vector<T>::Vector}}(\textcolor{keyword}{const} \mbox{\hyperlink{classVector}{Vector<T>}}\& other)}
+\DoxyCodeLine{80 \{}
+\DoxyCodeLine{81     copy(other.arr, other.capacity, other.currentSize);}
+\DoxyCodeLine{82 \}}
+\DoxyCodeLine{83 }
+\DoxyCodeLine{84 \textcolor{keyword}{template} <\textcolor{keyword}{typename} T>}
+\DoxyCodeLine{85 \mbox{\hyperlink{classVector}{Vector<T>}}\& \mbox{\hyperlink{classVector}{Vector<T>::operator=}}(\textcolor{keyword}{const} \mbox{\hyperlink{classVector}{Vector<T>}}\& other)}
+\DoxyCodeLine{86 \{}
+\DoxyCodeLine{87     \textcolor{keywordflow}{if} (\textcolor{keyword}{this} != \&other) \{}
+\DoxyCodeLine{88         deleteMem();}
+\DoxyCodeLine{89         copy(other.arr, other.capacity, other.currentSize);}
+\DoxyCodeLine{90     \}}
+\DoxyCodeLine{91     \textcolor{keywordflow}{return} *\textcolor{keyword}{this};}
+\DoxyCodeLine{92 \}}
+\DoxyCodeLine{93 }
+\DoxyCodeLine{94 \textcolor{keyword}{template} <\textcolor{keyword}{typename} T>}
+\DoxyCodeLine{95 \mbox{\hyperlink{classVector}{Vector<T>::\string~Vector}}()}
+\DoxyCodeLine{96 \{}
+\DoxyCodeLine{97     deleteMem();}
+\DoxyCodeLine{98 \}}
+\DoxyCodeLine{99 }
+\DoxyCodeLine{100 \textcolor{keyword}{template} <\textcolor{keyword}{typename} T>}
+\DoxyCodeLine{101 \textcolor{keywordtype}{void} \mbox{\hyperlink{classVector}{Vector<T>::push}}(\textcolor{keyword}{const} T\& element)}
+\DoxyCodeLine{102 \{}
+\DoxyCodeLine{103     \textcolor{keywordflow}{if} (currentSize == capacity)}
+\DoxyCodeLine{104         resize();}
+\DoxyCodeLine{105     arr[currentSize++] = element;}
+\DoxyCodeLine{106 \}}
+\DoxyCodeLine{107 }
+\DoxyCodeLine{108 \textcolor{keyword}{template} <\textcolor{keyword}{typename} T>}
+\DoxyCodeLine{109 \textcolor{keywordtype}{void} \mbox{\hyperlink{classVector}{Vector<T>::pop}}()}
+\DoxyCodeLine{110 \{}
+\DoxyCodeLine{111     currentSize-\/-\/;}
+\DoxyCodeLine{112 \}}
+\DoxyCodeLine{113 }
+\DoxyCodeLine{114 \textcolor{keyword}{template} <\textcolor{keyword}{typename} T>}
+\DoxyCodeLine{115 \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{classVector}{Vector<T>::getSize}}()\textcolor{keyword}{ const}}
+\DoxyCodeLine{116 \textcolor{keyword}{}\{}
+\DoxyCodeLine{117     \textcolor{keywordflow}{return} currentSize;}
+\DoxyCodeLine{118 \}}
+\DoxyCodeLine{119 }
+\DoxyCodeLine{120 \textcolor{keyword}{template} <\textcolor{keyword}{typename} T>}
+\DoxyCodeLine{121 \textcolor{keyword}{const} T\& \mbox{\hyperlink{classVector_a63cc62738d6c877aed773260d1f5d925}{Vector<T>::operator[]}}(\textcolor{keywordtype}{size\_t} index)\textcolor{keyword}{ const}}
+\DoxyCodeLine{122 \textcolor{keyword}{}\{}
+\DoxyCodeLine{123     \textcolor{keywordflow}{if} (index > currentSize)}
+\DoxyCodeLine{124         \textcolor{keywordflow}{throw} \textcolor{stringliteral}{"{}Index out of bounds!"{}};}
+\DoxyCodeLine{125     \textcolor{keywordflow}{return} arr[index];}
+\DoxyCodeLine{126 \}}
+\DoxyCodeLine{127 }
+\DoxyCodeLine{128 \textcolor{keyword}{template} <\textcolor{keyword}{typename} T>}
+\DoxyCodeLine{129 T\& \mbox{\hyperlink{classVector_a63cc62738d6c877aed773260d1f5d925}{Vector<T>::operator[]}}(\textcolor{keywordtype}{size\_t} index)}
+\DoxyCodeLine{130 \{}
+\DoxyCodeLine{131     \textcolor{keywordflow}{if} (index > currentSize)}
+\DoxyCodeLine{132         \textcolor{keywordflow}{throw} \textcolor{stringliteral}{"{}Index out of bounds!"{}};}
+\DoxyCodeLine{133     \textcolor{keywordflow}{return} arr[index];}
+\DoxyCodeLine{134 \}}
+\DoxyCodeLine{135 }
+\DoxyCodeLine{136 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

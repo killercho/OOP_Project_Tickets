@@ -1,0 +1,49 @@
+\hypertarget{Show_8h_source}{}\doxysection{Show.\+h}
+\label{Show_8h_source}\index{Show/Show.h@{Show/Show.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef SHOW\_H}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define SHOW\_H}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include "{}../Date/Date.h"{}}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include "{}../Room/Room.h"{}}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include "{}../String/String.h"{}}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include "{}../Ticket/Ticket.h"{}}}
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include "{}../Vector/Vector.h"{}}}
+\DoxyCodeLine{9 }
+\DoxyCodeLine{13 \textcolor{keyword}{class }\mbox{\hyperlink{classShow}{Show}} \{}
+\DoxyCodeLine{14 \textcolor{keyword}{private}:}
+\DoxyCodeLine{15     \mbox{\hyperlink{classString}{String}} name;                  }
+\DoxyCodeLine{16     \mbox{\hyperlink{classRoom}{Room}} room;                    }
+\DoxyCodeLine{17     \mbox{\hyperlink{classDate}{Date}} date;                    }
+\DoxyCodeLine{18     \mbox{\hyperlink{classVector}{Vector<Vector<Ticket>}}> seats; }
+\DoxyCodeLine{19 }
+\DoxyCodeLine{20     \textcolor{keyword}{static} \textcolor{keyword}{const} \mbox{\hyperlink{classRoom}{Room}} DEFAULT\_ROOM;     }
+\DoxyCodeLine{21     \textcolor{keyword}{static} \textcolor{keyword}{const} \mbox{\hyperlink{classDate}{Date}} DEFAULT\_DATE;     }
+\DoxyCodeLine{22     \textcolor{keyword}{static} \textcolor{keyword}{const} \mbox{\hyperlink{classString}{String}} DEFAULT\_STRING; }
+\DoxyCodeLine{23 }
+\DoxyCodeLine{24 \textcolor{keyword}{public}:}
+\DoxyCodeLine{25     \mbox{\hyperlink{classShow}{Show}}(\textcolor{keyword}{const} \mbox{\hyperlink{classString}{String}}\& name = DEFAULT\_STRING, \textcolor{keyword}{const} \mbox{\hyperlink{classRoom}{Room}}\& room = DEFAULT\_ROOM, \textcolor{keyword}{const} \mbox{\hyperlink{classDate}{Date}}\& date = DEFAULT\_DATE);}
+\DoxyCodeLine{26 }
+\DoxyCodeLine{27     \mbox{\hyperlink{classString}{String}} getName() \textcolor{keyword}{const};}
+\DoxyCodeLine{28     \mbox{\hyperlink{classRoom}{Room}} getRoom() \textcolor{keyword}{const};}
+\DoxyCodeLine{29     \mbox{\hyperlink{classDate}{Date}} getDate() \textcolor{keyword}{const};}
+\DoxyCodeLine{30 }
+\DoxyCodeLine{31     \textcolor{keywordtype}{bool} \mbox{\hyperlink{classShow_a69a44270801a411289b1ccfbdabbaac7}{operator==}}(\textcolor{keyword}{const} \mbox{\hyperlink{classShow}{Show}}\& other) \textcolor{keyword}{const};                         }
+\DoxyCodeLine{32     \textcolor{keywordtype}{bool} \mbox{\hyperlink{classShow_a5bbf697d279eb8860104e30bbc919046}{isRoomFree}}(\textcolor{keyword}{const} \mbox{\hyperlink{classDate}{Date}}\& checkDate) \textcolor{keyword}{const};                     }
+\DoxyCodeLine{33     \textcolor{keywordtype}{bool} \mbox{\hyperlink{classShow_aa6d4ffb1a698817d9dbce2c35728f94a}{isSeatTaken}}(\textcolor{keyword}{const} \textcolor{keywordtype}{size\_t} row, \textcolor{keyword}{const} \textcolor{keywordtype}{size\_t} seatOnRow) \textcolor{keyword}{const}; }
+\DoxyCodeLine{34 }
+\DoxyCodeLine{41     \mbox{\hyperlink{classString}{String}} \mbox{\hyperlink{classShow_abead32708c1e47cf0953e955a4afcd41}{reserveTicket}}(\textcolor{keyword}{const} \textcolor{keywordtype}{size\_t} row, \textcolor{keyword}{const} \textcolor{keywordtype}{size\_t} seatOnRow, \textcolor{keyword}{const} \mbox{\hyperlink{classString}{String}}\& password, \textcolor{keyword}{const} \mbox{\hyperlink{classString}{String}}\& desc = \textcolor{stringliteral}{"{}"{}});}
+\DoxyCodeLine{42 }
+\DoxyCodeLine{50     \mbox{\hyperlink{classString}{String}} \mbox{\hyperlink{classShow_a2f65d71161fc50fb39915d4870f001ea}{removeReservation}}(\textcolor{keyword}{const} \textcolor{keywordtype}{size\_t} row, \textcolor{keyword}{const} \textcolor{keywordtype}{size\_t} seatOnRow, \textcolor{keyword}{const} \mbox{\hyperlink{classString}{String}}\& password, \textcolor{keyword}{const} \mbox{\hyperlink{classString}{String}}\& desc = \textcolor{stringliteral}{"{}"{}});}
+\DoxyCodeLine{51 }
+\DoxyCodeLine{61     \textcolor{keywordtype}{short} \mbox{\hyperlink{classShow_a00456b337e362ac14ce4ca5169a9106d}{buyTicket}}(\textcolor{keyword}{const} \textcolor{keywordtype}{size\_t} row, \textcolor{keyword}{const} \textcolor{keywordtype}{size\_t} seatOnRow);}
+\DoxyCodeLine{62     \textcolor{keywordtype}{short} \mbox{\hyperlink{classShow_a00456b337e362ac14ce4ca5169a9106d}{buyTicket}}(\textcolor{keyword}{const} \textcolor{keywordtype}{size\_t} row, \textcolor{keyword}{const} \textcolor{keywordtype}{size\_t} seatOnRow, \textcolor{keyword}{const} \mbox{\hyperlink{classString}{String}}\& password);}
+\DoxyCodeLine{63 }
+\DoxyCodeLine{64     \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{classShow_a7523a17d5b9d386f1aa089a8dcffb81b}{freeSeats}}() \textcolor{keyword}{const};   }
+\DoxyCodeLine{65     \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{classShow_aab9d08b0e6de2b8f0cc9f57999859856}{reserveList}}() \textcolor{keyword}{const}; }
+\DoxyCodeLine{66     \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{classShow_a99d75dc017103efe720cd3e694d20c13}{boughtList}}() \textcolor{keyword}{const};  }
+\DoxyCodeLine{67 \};}
+\DoxyCodeLine{68 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}
